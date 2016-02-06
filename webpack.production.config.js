@@ -2,6 +2,10 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+var sassPaths = require("node-refills").includePaths.map(function(sassPath) {
+  return "includePaths[]=" + sassPath;
+}).join("&");
+
 module.exports = {
   entry: __dirname + "/source/js/app.js",
   output: {
@@ -20,7 +24,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("style", "css!sass")
+        loader: ExtractTextPlugin.extract("style", "css!sass?" + sassPaths)
       }
     ]
   },
