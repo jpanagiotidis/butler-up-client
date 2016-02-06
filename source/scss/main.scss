@@ -1,4 +1,7 @@
- html, body{
+@import "bourbon";
+@import "neat";
+
+html, body{
   display: block;
   position: relative;
   width: 100%;
@@ -12,4 +15,16 @@ body{
   h1{
     margin: 0;
   }
+}
+
+.box{
+  display: block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  top: 50%;
+  left: 50%;
+  @include transform(translate(-50%, -50%));
+  margin: 0 auto;
 }

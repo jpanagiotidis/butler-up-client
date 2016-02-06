@@ -1,6 +1,12 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+var sassPaths = require("node-refills").includePaths.map(function(sassPath) {
+  return "includePaths[]=" + sassPath;
+}).join("&");
+
+console.log(sassPaths);
+
 module.exports = {
   devtool: 'eval-source-map',
   entry: __dirname + "/source/js/app.js",
@@ -20,7 +26,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: "style!css!sass"
+        loader: "style!css!sass?" + sassPaths
       }
     ]
   },

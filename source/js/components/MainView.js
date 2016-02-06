@@ -7,7 +7,10 @@ class MainView extends Component{
 
   render(){
     return (
-      <h1>REACT</h1>
+      <div>
+        <h1>REACT</h1>
+        <div className="box"/>
+      </div>
     );
   }
 }
