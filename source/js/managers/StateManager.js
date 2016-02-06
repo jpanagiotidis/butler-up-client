@@ -11,7 +11,10 @@ export const tree = new Baobab({
     isLoading: true,
     items: []
   },
-  colors: ['yellow', 'blue', 'orange']
+  place: {
+    isLoading: true,
+    item: undefined
+  }
 });
 
 export const history = createHistory();

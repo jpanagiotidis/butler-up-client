@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
 import {fetchPlaces} from '../managers/ActionsManager.js';
+import {Link} from 'react-router';
 
 class PlacesListView extends Component{
   constructor(props){
@@ -12,7 +13,6 @@ class PlacesListView extends Component{
   }
 
   render(){
-    console.log('RENDER');
     const self = this;
 
     let content;
@@ -38,8 +38,10 @@ function getListItem(item){
   return (
     <li 
       key={item.id}>
-      <h3>{item.title}</h3>
-      <img src={item.image}/>
+      <Link to={`/place/${item.id}`}>
+        <h3>{item.title}</h3>
+        <img src={item.image}/>
+      </Link>
     </li>
   );
 }
