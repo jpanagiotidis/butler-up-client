@@ -11,6 +11,7 @@ class NavigationMenu extends Component{
       <nav>
         <ul>
           <li><Link to="/map">Map</Link></li>
+          <li><Link to="/places">Places</Link></li>
           <li><Link to="/settings">Settings</Link></li>
         </ul>
       </nav>
