@@ -10,7 +10,7 @@ class PlaceTypes extends Component{
     const self = this;
 
     const types = self.props.placeTypes.map(function(type){
-      return (<li>{type}</li>);
+      return (<li key={type}>{type}</li>);
     });
 
     return(

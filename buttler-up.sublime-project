@@ -3,6 +3,9 @@
 	[
 		{
 			"path": "."
+		},
+		{
+			"path": "/Users/jonathan/Documents/projects/web/buttler-up-server"
 		}
 	]
 }
