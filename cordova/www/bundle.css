@@ -1,0 +1,2 @@
+/*! Buttler Up */
+html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}body,html{display:block;position:relative;width:100%;height:100%;margin:0;padding:0;background-color:orange}body h1{margin:0}.box{display:block;position:absolute;width:50px;height:50px;background-color:red;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);margin:0 auto}

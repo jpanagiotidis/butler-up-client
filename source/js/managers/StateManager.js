@@ -1,5 +1,7 @@
 import Baobab from 'baobab';
-import { createHistory } from 'history';
+import {isCordova} from '../configuration';
+import {hashHistory} from 'react-router';
+import {createHistory} from 'history';
 
 export const tree = new Baobab({
   placeTypes: [
@@ -17,4 +19,10 @@ export const tree = new Baobab({
   }
 });
 
-export const history = createHistory();
+let _history;
+if(isCordova()){
+  _history = hashHistory;
+}else{
+  _history = createHistory();
+}
+export const history = _history;
