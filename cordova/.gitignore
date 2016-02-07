@@ -64,3 +64,6 @@ platforms/ios/.staging
 
 # Emulator logs
 platforms/ios/cordova/console.log
+
+www/bundle.js
+www/bundle.css

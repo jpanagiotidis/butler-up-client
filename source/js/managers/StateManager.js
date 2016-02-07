@@ -18,6 +18,10 @@ export const tree = new Baobab({
   place: {
     isLoading: true,
     item: undefined
+  },
+  map: {
+    isLoading: true,
+    items: []
   }
 });
 

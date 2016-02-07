@@ -1,8 +1,7 @@
 'user strict';
 
 import React, {Component} from 'react';
-import {setMap} from '../managers/MapManager.js';
-let map;
+import {branch} from 'baobab-react/higher-order';
 
 class MapView extends Component{
   constructor(props){
@@ -10,12 +9,12 @@ class MapView extends Component{
   }
 
   componentDidMount(){
-    setMap().then(function(){
-      map = new google.maps.Map(document.getElementById('mapFrame'), {
-        center: {lat: -34.397, lng: 150.644},
-        zoom: 8
-      });
-    })
+    const self = this;
+
+    self.map = new google.maps.Map(document.getElementById('mapFrame'), {
+      center: {lat: self.props.location.latitude, lng: self.props.location.longitude},
+      zoom: 16
+    });
   }
 
   render(){
@@ -25,4 +24,8 @@ class MapView extends Component{
   }
 }
 
-export default MapView;
+export default branch(MapView, {
+  cursors: {
+    location: ['location']
+  }
+});

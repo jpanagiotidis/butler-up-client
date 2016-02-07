@@ -4,6 +4,8 @@ import React from 'react';
 import {render} from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
 import {history} from './managers/StateManager.js';
+import {setMap, setInitPosition} from './managers/ActionsManager.js';
+import InitLoader from './components/InitLoader.js';
 import MainView from './components/MainView.js';
 import PlacesListView from './components/PlacesListView.js';
 import PlaceView from './components/PlaceView.js';
@@ -13,15 +15,19 @@ import SettingsView from './components/SettingsView.js';
 import NotFound from './components/NotFound.js';
 import '../scss/main.scss';
 
-render(
-  <Router history={history}>
-    <Route path="/" component={MainView}>
-      <Route path="/map" component={MapView}/>
-      <Route path="/places" component={PlacesListView}/>
-      <Route path="/place/:placeId" component={PlaceView}/>
-      <Route path="/settings" component={SettingsView}/>
-    </Route>
-    <Route path="*" component={NotFound}/>
-  </Router>, 
-  document.getElementById('appFrame')
-);
+render(<InitLoader/>, document.getElementById('appFrame'));
+
+Promise.all([setInitPosition(), setMap()]).then(function(res){
+  render(
+    <Router history={history}>
+      <Route path="/" component={MainView}>
+        <Route path="/map" component={MapView}/>
+        <Route path="/places" component={PlacesListView}/>
+        <Route path="/place/:placeId" component={PlaceView}/>
+        <Route path="/settings" component={SettingsView}/>
+      </Route>
+      <Route path="*" component={NotFound}/>
+    </Router>, 
+    document.getElementById('appFrame')
+  );
+})

@@ -9,7 +9,7 @@ class SettingsView extends Component{
 
   render(){
     return (
-      <h1>Settings</h1>
+      <h1>Settingssss</h1>
     );
   }
 }
