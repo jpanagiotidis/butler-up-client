@@ -1,3 +1,5 @@
+'user strict';
+
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
 import {fetchPlaces} from '../managers/ActionsManager.js';
@@ -27,7 +29,7 @@ class PlacesListView extends Component{
       );
     }
     return(
-      <div>
+      <div className="contentFrame">
         {content}
       </div>
     );

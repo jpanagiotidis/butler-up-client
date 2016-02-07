@@ -1,3 +1,5 @@
+'user strict';
+
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
 

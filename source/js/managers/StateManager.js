@@ -1,3 +1,5 @@
+'user strict';
+
 import Baobab from 'baobab';
 import {isCordova} from '../configuration';
 import {hashHistory} from 'react-router';

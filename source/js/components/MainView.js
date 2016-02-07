@@ -1,3 +1,5 @@
+'user strict';
+
 import React, {Component} from 'react';
 import {root} from 'baobab-react/higher-order';
 import {tree} from '../managers/StateManager.js';
@@ -11,9 +13,9 @@ class MainView extends Component{
   render(){
     const self = this;
     return (
-      <div>
-        <NavigationMenu/>
+      <div id="mainLayout">
         {self.props.children}
+        <NavigationMenu/>
       </div>
     );
   }

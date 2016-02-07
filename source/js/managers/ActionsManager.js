@@ -1,3 +1,5 @@
+'user strict';
+
 import request from 'superagent';
 import {getUrl} from '../configuration';
 import {tree} from './StateManager.js';

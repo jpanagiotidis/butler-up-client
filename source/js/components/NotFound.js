@@ -1,3 +1,5 @@
+'user strict';
+
 import React, {Component} from 'react';
 
 class NotFound extends Component{
