@@ -10,14 +10,14 @@ class TitleView extends Component{
 
   render(){
     return(
-      <Link to="/map">
-        <div className="bu-title-screen">
+      <div className="bu-screen bu-title-screen">
+        <Link to="/map">
           <div className="bu-title-frame">
             <img className="logo" src="images/logo.png"/>
             <h1>START</h1>
           </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
     );
   }
 }

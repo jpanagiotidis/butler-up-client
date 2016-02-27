@@ -11,9 +11,10 @@ class InitLoader extends Component{
     const self = this;
     
     return(
-      <div className="bu-loading">
-        <h1>Buttler Up</h1>
-        <img src="images/cog.svg" className="bu-spinner"/>
+      <div className="bu-screen">
+        <div className="bu-loading">
+          <i className="fa fa-cog fa-3x fa-spin"></i>
+        </div>
       </div>
     );
   }

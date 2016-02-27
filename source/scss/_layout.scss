@@ -35,3 +35,14 @@ nav{
   right: 0;
   background-color: $color_dark;
 }
+
+.bu-screen{
+  display: block;
+  position: relative;
+  width: 96%;
+  height: 96%;
+  top: 50%;
+  margin: 0 auto;
+  @include transform(translateY(-50%));
+  background-color: $color_b;
+}
