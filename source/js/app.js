@@ -5,22 +5,17 @@ import {render} from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
 import {history} from './managers/StateManager.js';
 import {setMap, setInitPosition} from './managers/ActionsManager.js';
-import InitLoader from './components/InitLoader.js';
-import MainView from './components/MainView.js';
-import PlacesListView from './components/PlacesListView.js';
-import PlaceView from './components/PlaceView.js';
-import PlaceTypes from './components/PlaceTypes.js';
-import MapView from './components/MapView.js';
-import SettingsView from './components/SettingsView.js';
-import NotFound from './components/NotFound.js';
+import {InitLoader, TitleView, MainView, PlacesListView, PlaceView, PlaceTypes, MapView, SettingsView, NotFound} from './components';
 import '../scss/main.scss';
 
 render(<InitLoader/>, document.getElementById('appFrame'));
 
-Promise.all([setInitPosition(), setMap()]).then(function(res){
+Promise.all([setInitPosition(), setMap()])
+.then(function(res){
   render(
     <Router history={history}>
-      <Route path="/" component={MainView}>
+      <Route path="/" component={TitleView}/>
+      <Route path="app" component={MainView}>
         <Route path="/map" component={MapView}/>
         <Route path="/places" component={PlacesListView}/>
         <Route path="/place/:placeId" component={PlaceView}/>
@@ -30,4 +25,8 @@ Promise.all([setInitPosition(), setMap()]).then(function(res){
     </Router>, 
     document.getElementById('appFrame')
   );
+})
+.catch(function(err){
+  console.log('ERROR ON APP LOADING');
+  console.log(err);
 });

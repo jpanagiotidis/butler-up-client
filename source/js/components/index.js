@@ -1,0 +1,9 @@
+export {default as InitLoader} from './InitLoader.js';
+export {default as TitleView} from './TitleView.js';
+export {default as MainView} from './MainView.js';
+export {default as PlacesListView} from './PlacesListView.js';
+export {default as PlaceView} from './PlaceView.js';
+export {default as PlaceTypes} from './PlaceTypes.js';
+export {default as MapView} from './MapView.js';
+export {default as SettingsView} from './SettingsView.js';
+export {default as NotFound} from './NotFound.js';
