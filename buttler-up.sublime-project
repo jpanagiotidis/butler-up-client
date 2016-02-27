@@ -3,6 +3,12 @@
 	[
 		{
 			"path": "."
+		},
+		{
+			"path": "/Users/jpanagiotidis/Documents/projects/buttler-up-server"
+		},
+		{
+			"path": "/Users/jpanagiotidis/Documents/projects/technical-notes"
 		}
 	]
 }
