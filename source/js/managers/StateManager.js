@@ -6,11 +6,7 @@ import {hashHistory} from 'react-router';
 import {createHistory} from 'history';
 
 export const tree = new Baobab({
-  placeTypes: [
-    'Bar',
-    'Cafe',
-    'Restaurant'
-  ],
+  placeTypes: [],
   places: {
     isLoading: true,
     items: []

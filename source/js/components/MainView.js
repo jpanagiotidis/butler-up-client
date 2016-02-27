@@ -14,7 +14,9 @@ class MainView extends Component{
     const self = this;
     return (
       <div className="bu-screen">
-        {self.props.children}
+        <div className="bu-content-frame">
+          {self.props.children}
+        </div>
         <NavigationMenu/>
       </div>
     );

@@ -2,6 +2,7 @@
 
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
+import {PlaceTypeItem} from '../components';
 
 class PlaceTypes extends Component{
   constructor(props){
@@ -12,11 +13,16 @@ class PlaceTypes extends Component{
     const self = this;
 
     const types = self.props.placeTypes.map(function(type){
-      return (<li key={type}>{type}</li>);
+      const props = Object.assign({
+        key: type.id
+      }, type);
+      return (<PlaceTypeItem {...props}/>);
     });
 
     return(
-      <ul>{types}</ul>
+      <div className="bu-place-types">
+        {types}
+      </div>
     );
   }
 }

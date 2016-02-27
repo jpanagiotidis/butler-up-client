@@ -19,7 +19,7 @@ class MapView extends Component{
 
   render(){
     return (
-      <div id="mapFrame" className="contentFrame"/>
+      <div id="mapFrame"/>
     );
   }
 }

@@ -1,0 +1,7 @@
+.bu-place-types{
+  display: block;
+  position: relative;
+  text-align: center;
+  top: 50%;
+  @include transform(translateY(-50%));
+}
