@@ -13,7 +13,7 @@ class MainView extends Component{
   render(){
     const self = this;
     return (
-      <div id="mainLayout">
+      <div className="bu-screen">
         {self.props.children}
         <NavigationMenu/>
       </div>

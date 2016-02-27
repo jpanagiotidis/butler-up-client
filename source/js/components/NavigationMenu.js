@@ -10,11 +10,18 @@ class NavigationMenu extends Component{
 
   render(){
     return (
-      <nav>
+      <nav className="bu-nav-menu">
         <ul>
-          <li><Link to="/map">Map</Link></li>
-          <li><Link to="/places">Places</Link></li>
-          <li><Link to="/settings">Settings</Link></li>
+          <li>
+            <Link to="/settings">
+              <i className="bu-btn-settings fa fa-2x fa-cog"></i>
+            </Link>
+          </li>
+          <li>
+            <Link to="/map">
+              <i className="bu-btn-map fa fa-2x fa-search"></i>
+            </Link>
+          </li>
         </ul>
       </nav>
     );
