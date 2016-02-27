@@ -30,4 +30,4 @@ Promise.all([setInitPosition(), setMap()]).then(function(res){
     </Router>, 
     document.getElementById('appFrame')
   );
-})
+});

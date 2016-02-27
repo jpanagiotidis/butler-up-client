@@ -2,3 +2,11 @@ buttler-up.sublime-workspace
 node_modules/*
 build/*
 npm-debug.log
+.DS_Store
+*/.DS_Store
+
+cordova/platforms/*
+cordova/plugins/*
+cordova/www/bundle.js
+cordova/www/bundle.css
+cordova/www/images/*

@@ -1,0 +1,18 @@
+.bu-loading{
+  position: relative;
+  top: 50%;
+  @include transform(translateY(-50%));
+  text-align: center;
+
+  img.bu-spinner{
+    height: 40px;
+    margin-top: 20px;
+    animation: rotate 2000ms linear 0ms infinite;
+    transform-origin: center;
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

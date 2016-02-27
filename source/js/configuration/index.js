@@ -1,7 +1,7 @@
 'user strict';
 
 export function getUrl(){
-  return 'http://localhost/apps/catalogue-finder/server/src/dev';
+  return 'http://localhost:8888/buttler-up-server';
 }
 
 export function isCordova(){

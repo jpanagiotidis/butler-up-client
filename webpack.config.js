@@ -3,6 +3,7 @@ var _ = require('underscore');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var _params = getParams();
 console.log(_params);
@@ -52,6 +53,13 @@ if(_params.mode === 'dev'){
   }));
   webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
 
+  webpackConfig.plugins.push(new CopyWebpackPlugin([
+    {
+      from: __dirname + '/source/images',
+      to: __dirname + '/images'
+    }
+  ]));
+
 }else if(_params.mode === 'prod'){
   webpackConfig.module.loaders.push({
     test: /\.scss$/,
@@ -60,6 +68,12 @@ if(_params.mode === 'dev'){
 
   webpackConfig.plugins.push(new webpack.optimize.OccurenceOrderPlugin());
   webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin());
+  webpackConfig.plugins.push(new CopyWebpackPlugin([
+    {
+      from: __dirname + '/source/images',
+      to: __dirname + '/images'
+    }
+  ]));
 
   if(_params.platform === 'web'){
     webpackConfig.output.filename = "[name]-[hash].js";
