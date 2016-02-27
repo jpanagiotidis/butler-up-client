@@ -4,4 +4,14 @@
   text-align: center;
   top: 50%;
   @include transform(translateY(-50%));
+
+  .bu-place-type-item{
+    padding-top: 2em;
+    padding-bottom: 2em;
+    opacity: 0.3;
+
+    &.active{
+      opacity: 1; 
+    }
+  }
 }

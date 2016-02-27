@@ -3,6 +3,7 @@
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
 import {PlaceTypeItem} from '../components';
+import {map} from 'underscore';
 
 class PlaceTypes extends Component{
   constructor(props){
@@ -12,7 +13,7 @@ class PlaceTypes extends Component{
   render(){
     const self = this;
 
-    const types = self.props.placeTypes.map(function(type){
+    const types = map(self.props.placeTypes, function(type){
       const props = Object.assign({
         key: type.id
       }, type);

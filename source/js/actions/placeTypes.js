@@ -27,18 +27,23 @@ export function fetchPlaceTypes(){
 }
 
 function setPlaceTypes(data){
-  var types = [];
+  var types = {};
 
   data.forEach(function(obj){
     const type = obj.type;
     if(icons[type.name]){
-      types.push({
+      types[type.tid] = {
         id: type.tid,
         name: type.name,
         visible: type.field_cf_place_type_visible_name,
-        icon: icons[type.name]
-      });
+        icon: icons[type.name],
+        isActive: true
+      };
     }
   });
   _placeTypes.set(types);
+}
+
+export function switchType(id){
+  _placeTypes.set([id, 'isActive'], !_placeTypes.get([id, 'isActive']));
 }
