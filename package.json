@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --progress --#mode=dev --#platform=web",
     "build": "NODE_ENV=production webpack --progress --#mode=prod --#platform=web",
+    "cordova-init": "cd cordova && cordova prepare && cordova build",
     "build-android": "NODE_ENV=production webpack --progress --#mode=prod --#platform=android && cd cordova && cordova run android",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
