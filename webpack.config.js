@@ -28,7 +28,17 @@ var webpackConfig = {
     ]
   },
   plugins: [
-    new webpack.BannerPlugin("Buttler Up")
+    new webpack.BannerPlugin("Buttler Up"),
+    new CopyWebpackPlugin([
+      {
+        from: __dirname + '/static/images',
+        to: __dirname + '/images'
+      },
+      {
+        from: __dirname + '/static/fa',
+        to: __dirname + '/fa'
+      }
+    ])
   ]
 }
 
@@ -53,13 +63,6 @@ if(_params.mode === 'dev'){
   }));
   webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
 
-  webpackConfig.plugins.push(new CopyWebpackPlugin([
-    {
-      from: __dirname + '/source/images',
-      to: __dirname + '/images'
-    }
-  ]));
-
 }else if(_params.mode === 'prod'){
   webpackConfig.module.loaders.push({
     test: /\.scss$/,
@@ -68,12 +71,6 @@ if(_params.mode === 'dev'){
 
   webpackConfig.plugins.push(new webpack.optimize.OccurenceOrderPlugin());
   webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin());
-  webpackConfig.plugins.push(new CopyWebpackPlugin([
-    {
-      from: __dirname + '/source/images',
-      to: __dirname + '/images'
-    }
-  ]));
 
   if(_params.platform === 'web'){
     webpackConfig.output.filename = "[name]-[hash].js";

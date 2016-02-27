@@ -14,7 +14,7 @@ class TitleView extends Component{
         <div className="bu-title-screen">
           <div className="bu-title-frame">
             <img className="logo" src="images/logo.png"/>
-            <h1>ΑΝΑΖΗΤΗΣΗ</h1>
+            <h1>START</h1>
           </div>
         </div>
       </Link>
