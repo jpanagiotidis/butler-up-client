@@ -12,11 +12,24 @@ class PlaceListItem extends Component{
 
   render(){
     const self = this;
+
+    const iconClasses = [
+      'fa',
+      'fa-3x',
+      self.props.icon
+    ];
     return (
-      <li>
+      <li className="bu-place-list-item">
         <Link to={`/place/${self.props.id}`}>
           <h3>{self.props.title}</h3>
-          <img src={self.props.image}/>
+          <div className="bu-list-item-content">
+            <div className="bu-image-holder">
+              <img src={self.props.image}/>
+            </div>
+            <div className="bu-list-item-type">
+              <i className={iconClasses.join(' ')}/>
+            </div>
+          </div>
         </Link>
       </li>
     );

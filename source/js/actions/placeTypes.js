@@ -10,6 +10,7 @@ const icons = {
   'cafe': 'fa-coffee',
   'restaurant': 'fa-cutlery'
 };
+const idsCache = {};
 const _placeTypes = tree.select('placeTypes');
 
 export function fetchPlaceTypes(){
@@ -62,4 +63,8 @@ export function getActive(){
       return type.id;
     });
   }
+}
+
+export function getTypeIcon(id){
+  return _placeTypes.get([id, 'icon']);
 }
