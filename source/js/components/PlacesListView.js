@@ -2,8 +2,8 @@
 
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
-import {getPlaces} from '../actions/places.js';
 import {Link} from 'react-router';
+import {getActivePlaces} from '../actions/places.js';
 
 class PlacesListView extends Component{
   constructor(props){
@@ -11,7 +11,7 @@ class PlacesListView extends Component{
   }
 
   componentWillMount(){
-    getPlaces();
+    getActivePlaces();
   }
 
   render(){
@@ -51,6 +51,6 @@ function getListItem(item){
 export default branch(PlacesListView, {
   cursors: {
     isLoading: ['places', 'isLoading'],
-    items: ['places', 'items']
+    items: ['places', 'activeItems']
   }
 });

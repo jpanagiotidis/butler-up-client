@@ -1,7 +1,7 @@
 'user strict';
 
 import request from 'superagent';
-import {isArray} from 'underscore';
+import {filter, isArray} from 'underscore';
 import {getUrl} from '../configuration';
 import {tree} from '../managers/StateManager.js';
 import {getActive as getActiveTypes} from '../actions/placeTypes.js';
@@ -11,8 +11,33 @@ const _places = tree.select('places');
 _places.set({
   isLoading: false,
   lastUpdate: undefined,
-  items: []
+  items: [],
+  activeItems: []
 });
+
+export function getActivePlaces(){
+  console.log('FILTERING')
+  return new Promise((resolve, reject) => {
+    getPlaces()
+    .then((res) => {
+      const activeTypes = getActiveTypes();
+      const activeItems = filter(res, (place) => {
+        if(activeTypes === 'all' || activeTypes.indexOf(place.type) !== -1){
+          return true;
+        }else{
+          return false;
+        }
+      });
+
+      _places.set(['activeItems'], activeItems);
+      resolve(activeItems);
+    })
+    .catch((err) => {
+      console.log(err);
+      reject(err);
+    });
+  });
+}
 
 export function getPlaces(){
   return new Promise((resolve, reject) => {
