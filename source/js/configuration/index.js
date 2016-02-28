@@ -12,4 +12,5 @@ export function isCordova(){
   }
 }
 
+export const cachingMilli = 1000*60*45;
 export const MapsKey = 'AIzaSyDRnkapVVieb92av9W7UlbZ7ZK6OKu-4Ps';

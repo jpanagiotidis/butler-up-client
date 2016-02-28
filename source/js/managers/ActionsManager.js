@@ -5,51 +5,10 @@ import {getUrl} from '../configuration';
 import {tree} from './StateManager.js';
 import {getActive as getActiveTypes} from '../actions/placeTypes.js';
 import scriptjs from 'scriptjs';
-import {isArray} from 'underscore';
 
 const _places = tree.select('places');
 const _place = tree.select('place');
 const _location = tree.select('location');
-
-export function fetchPlaces(){
-  return new Promise((resolve, reject) => {
-    _places.set('isLoading', true);
-    const url = [
-      getUrl(),
-      'places-finder',
-      getLocationArg(),
-      getTypesArg()
-    ];
-    request
-    .get(url.join('/'))
-    .end(function(err, res){
-      if(err){
-        _places.set('isLoading', false);
-        reject(err);
-      }else{
-        const out = res.body.results.map(function(obj){
-          return obj['place'];
-        });
-        _places.set('items', out);
-        _places.set('isLoading', false);
-        resolve(out);
-      }
-    });
-  });
-};
-
-function getLocationArg(){
-  return 'all';
-}
-
-function getTypesArg(){
-  const args = getActiveTypes();
-  if(isArray(args)){
-    return args.join('+');
-  }else{
-    return args;
-  }
-}
 
 export function fetchPlace(id){
   return new Promise((resolve, reject) => {

@@ -7,10 +7,6 @@ import {createHistory} from 'history';
 
 export const tree = new Baobab({
   placeTypes: [],
-  places: {
-    isLoading: true,
-    items: []
-  },
   place: {
     isLoading: true,
     item: undefined

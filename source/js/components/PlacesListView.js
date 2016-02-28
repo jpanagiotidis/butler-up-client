@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
-import {fetchPlaces} from '../managers/ActionsManager.js';
+import {getPlaces} from '../actions/places.js';
 import {Link} from 'react-router';
 
 class PlacesListView extends Component{
@@ -11,7 +11,7 @@ class PlacesListView extends Component{
   }
 
   componentWillMount(){
-    fetchPlaces();
+    getPlaces();
   }
 
   render(){

@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
 import {Link} from 'react-router';
-import {fetchPlaces} from '../managers/ActionsManager.js';
+import {getPlaces} from '../actions/places.js';
 
 class MapView extends Component{
   constructor(props){
@@ -11,7 +11,7 @@ class MapView extends Component{
   }
 
   componentWillMount(){
-    fetchPlaces();
+    getPlaces();
   }
 
   componentDidMount(){
