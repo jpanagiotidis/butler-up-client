@@ -18,7 +18,7 @@ Promise.all([setInitPosition(), setMap(), fetchPlaceTypes()])
       <Route path="/" component={TitleView}/>
       <Route path="app" component={MainView}>
         <Route path="/map" component={MapView}/>
-        <Route path="/places" component={PlacesListView}/>
+        <Route path="/place" component={PlacesListView}/>
         <Route path="/place/:placeId" component={PlaceView}/>
         <Route path="/settings" component={PlaceTypes}/>
       </Route>

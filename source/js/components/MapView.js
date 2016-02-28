@@ -2,6 +2,7 @@
 
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
+import {Link} from 'react-router';
 
 class MapView extends Component{
   constructor(props){
@@ -19,7 +20,14 @@ class MapView extends Component{
 
   render(){
     return (
-      <div id="mapFrame"/>
+      <div className="bu-map-holder">
+        <div className="bu-map-switch">
+          <Link to="/place">
+            <i className="fa fa-2x fa-bars"/>
+          </Link>
+        </div>
+        <div id="mapFrame"/>
+      </div>
     );
   }
 }
