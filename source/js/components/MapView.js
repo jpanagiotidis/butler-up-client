@@ -3,10 +3,15 @@
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
 import {Link} from 'react-router';
+import {fetchPlaces} from '../managers/ActionsManager.js';
 
 class MapView extends Component{
   constructor(props){
     super(props);
+  }
+
+  componentWillMount(){
+    fetchPlaces();
   }
 
   componentDidMount(){
@@ -14,11 +19,30 @@ class MapView extends Component{
 
     self.map = new google.maps.Map(document.getElementById('mapFrame'), {
       center: {lat: self.props.location.latitude, lng: self.props.location.longitude},
-      zoom: 16
+      zoom: 12
     });
   }
 
+  drawPlaces(){
+    const self = this;
+
+    if(self.map){
+      self.props.items.forEach(function(place){
+        const pos = new google.maps.LatLng(place.latitude, place.longitude);
+
+        var marker = new google.maps.Marker({
+            position: pos,
+            title:"Hello World!"
+        });
+
+        marker.setMap(self.map);
+      });
+    }
+  }
+
   render(){
+    const self = this;
+    self.drawPlaces();
     return (
       <div className="bu-map-holder">
         <div className="bu-map-switch">
@@ -34,6 +58,7 @@ class MapView extends Component{
 
 export default branch(MapView, {
   cursors: {
-    location: ['location']
+    location: ['location'],
+    items: ['places', 'items']
   }
 });
