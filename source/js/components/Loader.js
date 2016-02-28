@@ -1,9 +1,8 @@
 'use strict';
 
 import React, {Component} from 'react';
-import {Loader} from '../components';
 
-class InitLoader extends Component{
+class Loader extends Component{
   constructor(props){
     super(props);
   }
@@ -12,11 +11,11 @@ class InitLoader extends Component{
     const self = this;
     
     return(
-      <div className="bu-screen">
-        <Loader/>
+      <div className="bu-loading">
+        <i className="fa fa-cog fa-3x fa-spin"></i>
       </div>
     );
   }
 }
 
-export default InitLoader;
+export default Loader;

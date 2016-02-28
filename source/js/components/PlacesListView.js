@@ -4,6 +4,8 @@ import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
 import {Link} from 'react-router';
 import {getActivePlaces} from '../actions/places.js';
+import {Loader} from '../components';
+import {PlaceListItem} from '../components';
 
 class PlacesListView extends Component{
   constructor(props){
@@ -17,35 +19,25 @@ class PlacesListView extends Component{
   render(){
     const self = this;
 
-    let content;
     if(self.props.isLoading){
-      content = (<h1>Loading...</h1>)
+      return (
+        <Loader/>
+      );
     }else{
-
-      content = (
-        <ul>
-          {self.props.items.map(getListItem)}
-        </ul>
+      return (
+        <div className="bu-places-list">
+          <ul>
+            {self.props.items.map(item => {
+              const props = Object.assign({
+                key: item.id
+              }, item);
+              return (<PlaceListItem {...props}/>);
+            })}
+          </ul>
+        </div>
       );
     }
-    return(
-      <div className="contentFrame">
-        {content}
-      </div>
-    );
   }
-}
-
-function getListItem(item){
-  return (
-    <li 
-      key={item.id}>
-      <Link to={`/place/${item.id}`}>
-        <h3>{item.title}</h3>
-        <img src={item.image}/>
-      </Link>
-    </li>
-  );
 }
 
 export default branch(PlacesListView, {
