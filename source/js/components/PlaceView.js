@@ -16,16 +16,21 @@ class PlaceView extends Component{
 
   render(){
     const self = this;
+    console.log(self.props.item);
     
     let content;
     if(self.props.isLoading){
       content = (<h1>Loading...</h1>)
     }else if(self.props.item){
       content = (
-        <article>
-          <h1>{self.props.item.title}</h1>
-          <img src={self.props.item.image}/>
-          <p>{self.props.item.description}</p>
+        <article className="bu-place">
+          <h1 className="bu-place-header">{self.props.item.title}</h1>
+          <div className="bu-place-image-holder">
+            <img src={self.props.item.image}/>
+          </div>
+          <div className="bu-place-description">
+            <p>{self.props.item.description}</p>
+          </div>
         </article>
       );
     }

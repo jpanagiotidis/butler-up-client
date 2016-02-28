@@ -88,7 +88,6 @@ function fetchAllPlaces(){
             icon: getTypeIcon(obj.place.type)
           });
         });
-        console.log(out)
         _places.set('items', out);
         _places.set('lastUpdate', (new Date()).getTime());
         resolve(out);

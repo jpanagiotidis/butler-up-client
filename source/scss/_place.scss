@@ -1,0 +1,16 @@
+article.bu-place{
+  h1.bu-place-header{
+    padding: 0.6em;
+    color: $color_d;
+  }
+
+  div.bu-place-description{
+    background-color: $color_a;
+    padding: 0.6em;
+
+    p{
+      color: $color_d;
+      text-align: justify;
+    }
+  }
+}
