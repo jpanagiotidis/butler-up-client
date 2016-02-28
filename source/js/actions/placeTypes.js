@@ -3,6 +3,7 @@
 import request from 'superagent';
 import {getUrl} from '../configuration';
 import {tree} from '../managers/StateManager.js';
+import {filter, size} from 'underscore';
 
 const icons = {
   'bar': 'fa-glass',
@@ -46,4 +47,19 @@ function setPlaceTypes(data){
 
 export function switchType(id){
   _placeTypes.set([id, 'isActive'], !_placeTypes.get([id, 'isActive']));
+}
+
+export function getActive(){
+  const allTypes = _placeTypes.get();
+  let out = filter(allTypes, function(type){
+    return type.isActive;
+  });
+
+  if(out.length === size(allTypes) || out.length === 0){
+    return 'all';
+  }else{
+    return out.map(function(type){
+      return type.id;
+    });
+  }
 }

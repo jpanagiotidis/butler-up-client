@@ -3,7 +3,9 @@
 import request from 'superagent';
 import {getUrl} from '../configuration';
 import {tree} from './StateManager.js';
+import {getActive as getActiveTypes} from '../actions/placeTypes.js';
 import scriptjs from 'scriptjs';
+import {isArray} from 'underscore';
 
 const _places = tree.select('places');
 const _place = tree.select('place');
@@ -12,8 +14,14 @@ const _location = tree.select('location');
 export function fetchPlaces(){
   return new Promise((resolve, reject) => {
     _places.set('isLoading', true);
+    const url = [
+      getUrl(),
+      'places-finder',
+      getLocationArg(),
+      getTypesArg()
+    ];
     request
-    .get(getUrl() + '/places-finder')
+    .get(url.join('/'))
     .end(function(err, res){
       if(err){
         _places.set('isLoading', false);
@@ -29,6 +37,19 @@ export function fetchPlaces(){
     });
   });
 };
+
+function getLocationArg(){
+  return 'all';
+}
+
+function getTypesArg(){
+  const args = getActiveTypes();
+  if(isArray(args)){
+    return args.join('+');
+  }else{
+    return args;
+  }
+}
 
 export function fetchPlace(id){
   return new Promise((resolve, reject) => {

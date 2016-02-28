@@ -31,8 +31,8 @@ class MapView extends Component{
         const pos = new google.maps.LatLng(place.latitude, place.longitude);
 
         var marker = new google.maps.Marker({
-            position: pos,
-            title:"Hello World!"
+          position: pos,
+          title:"Hello World!"
         });
 
         marker.setMap(self.map);
