@@ -16,7 +16,6 @@ _places.set({
 });
 
 export function getActivePlaces(){
-  console.log('FILTERING')
   return new Promise((resolve, reject) => {
     getPlaces()
     .then((res) => {

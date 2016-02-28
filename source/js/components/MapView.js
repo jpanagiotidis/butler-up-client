@@ -5,6 +5,8 @@ import {branch} from 'baobab-react/higher-order';
 import {Link} from 'react-router';
 import {getActivePlaces} from '../actions/places.js';
 
+const markers = [];
+
 class MapView extends Component{
   constructor(props){
     super(props);
@@ -25,19 +27,32 @@ class MapView extends Component{
     self.drawPlaces();
   }
 
+  clearPlaces(){
+    const self = this;
+    if(self.map){
+      markers.forEach(m => {
+        m.setMap(null);
+      });
+    }
+  }
+
   drawPlaces(){
     const self = this;
 
+    self.clearPlaces();
+    
     if(self.map){
       self.props.items.forEach(function(place){
         const pos = new google.maps.LatLng(place.latitude, place.longitude);
 
-        var marker = new google.maps.Marker({
+        const marker = new google.maps.Marker({
           position: pos,
           label: place.type
         });
 
         marker.setMap(self.map);
+
+        markers.push(marker);
       });
     }
   }
