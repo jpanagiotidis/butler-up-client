@@ -21,6 +21,8 @@ class MapView extends Component{
       center: {lat: self.props.location.latitude, lng: self.props.location.longitude},
       zoom: 12
     });
+
+    self.drawPlaces();
   }
 
   drawPlaces(){
