@@ -1,7 +1,8 @@
 'user strict';
 
 export function getUrl(){
-  return 'http://localhost:8888/buttler-up-server';
+  return 'http://butlerup.jpan.webfactional.com';
+  // return 'http://localhost:8888/buttler-up-server';
 }
 
 export function isCordova(){
