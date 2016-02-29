@@ -4,6 +4,16 @@ article.bu-place{
     color: $color_d;
   }
 
+  div.bu-place-image-holder{
+    display: block;
+    width: 100%;
+
+    img{
+      display: block;
+      width: 100%;
+    }
+  }
+
   div.bu-place-description{
     background-color: $color_a;
     padding: 0.6em;

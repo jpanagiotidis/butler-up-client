@@ -1,8 +1,14 @@
 'user strict';
 
+import {getURLParams} from '../utils/tools.js';
+
 export function getUrl(){
-  return 'http://butlerup.jpan.webfactional.com';
-  // return 'http://localhost:8888/buttler-up-server';
+  const params = getURLParams();
+  if(params.mode === 'dev'){
+    return 'http://localhost:8888/buttler-up-server';
+  }else{
+    return 'http://butlerup.jpan.webfactional.com';
+  }
 }
 
 export function isCordova(){
