@@ -3,6 +3,7 @@
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
 import {getPlace} from '../actions/places.js';
+import {getString} from '../managers/StringsManager.js';
 
 class PlaceView extends Component{
   constructor(props){
@@ -21,7 +22,7 @@ class PlaceView extends Component{
     if(place.phones && place.phones.length > 0){
       place.phones.forEach(function(phone, index){
         out.push({
-          "label": index === 0 ? "Τηλέφωνο" : "",
+          "label": index === 0 ? getString(['place', 'phone']) : "",
           "value": phone
         });
       });
@@ -30,13 +31,13 @@ class PlaceView extends Component{
     if(place.location){
       if(place.location.street){
         out.push({
-          "label": "Διεύθυνση:",
+          "label": getString(['place', 'street']),
           "value": place.location.street
         });
       }
       if(place.location.city){
         out.push({
-          "label": "Πόλη:",
+          "label": getString(['place', 'city']),
           "value": place.location.city
         });
       }
@@ -85,24 +86,25 @@ class PlaceView extends Component{
           <section className="bu-place-image-holder">
             <img src={place.main_image}/>
           </section>
-          <h2 className="bu-place-section-header bu-section">Περιγραφή</h2>
+          <h2 className="bu-place-section-header bu-section">{getString(['place', 'description'])}</h2>
           <section 
             className="bu-place-description bu-section"
             dangerouslySetInnerHTML={{__html:place.description}}
           />
-          <h2 className="bu-place-section-header bu-section">Κατάλογοι</h2>
+          <h2 className="bu-place-section-header bu-section">{getString(['place', 'catalogues'])}</h2>
           <section className="bu-place-catalogues">
             <ul className="catalogues">
               {catalogues}
             </ul>
           </section>
-          <h2 className="bu-place-section-header bu-section">Πληροφορίες</h2>
+          <h2 className="bu-place-section-header bu-section">{getString(['place', 'info'])}</h2>
           <section className="bu-place-info">
             {self.getInfoTable()}
           </section>
         </article>
       );
     }
+    
     return(
       <div>
         {content}
