@@ -73,9 +73,7 @@ function fetchAllPlaces(){
   return new Promise((resolve, reject) => {
     const url = [
       getUrl(),
-      'places-finder',
-      'all',
-      'all'
+      'get-places'
     ];
     request
     .get(url.join('/'))
@@ -83,9 +81,9 @@ function fetchAllPlaces(){
       if(err){
         reject(err);
       }else{
-        const out = res.body.results.map(function(obj){
-          return Object.assign(obj.place, {
-            icon: getTypeIcon(obj.place.type)
+        const out = res.body.map(function(place){
+          return Object.assign(place, {
+            icon: getTypeIcon(place.type)
           });
         });
         _places.set('items', out);
