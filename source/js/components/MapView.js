@@ -2,10 +2,10 @@
 
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
-import {Link} from 'react-router';
+import {Link, browserHistory} from 'react-router';
 import {getActivePlaces} from '../actions/places.js';
 
-const markers = [];
+let markers = [];
 
 class MapView extends Component{
   constructor(props){
@@ -21,7 +21,7 @@ class MapView extends Component{
 
     self.map = new google.maps.Map(document.getElementById('mapFrame'), {
       center: {lat: self.props.location.latitude, lng: self.props.location.longitude},
-      zoom: 12
+      zoom: 16
     });
 
     self.drawPlaces();
@@ -34,6 +34,8 @@ class MapView extends Component{
         m.setMap(null);
       });
     }
+
+    markers = [];
   }
 
   drawPlaces(){
@@ -51,6 +53,10 @@ class MapView extends Component{
         });
 
         marker.setMap(self.map);
+
+        marker.addListener('click', function(){
+          self.props.history.pushState(null, '/place/' + place.id);
+        });
 
         markers.push(marker);
       });
