@@ -1,16 +1,13 @@
-'user strict';
+'use strict';
 
-import request from 'superagent';
-import {getUrl} from '../configuration';
-import {tree} from './StateManager.js';
-import {getActive as getActiveTypes} from '../actions/placeTypes.js';
+import {tree} from '../managers/StateManager.js';
 import scriptjs from 'scriptjs';
 
 const _location = tree.select('location');
 
 let mapPromise;
 
-export function setMap(){
+export function initMap(){
   if(!mapPromise){
     mapPromise = new Promise((resolve, reject) => {
       scriptjs('https://maps.googleapis.com/maps/api/js?key=AIzaSyARWtx4Q6VoyjGAq1u5ful7J0101f-Zy70', function() {
@@ -21,7 +18,7 @@ export function setMap(){
   return mapPromise;
 }
 
-export function setInitPosition(){
+export function initPosition(){
   return new Promise((resolve, reject) => {
     getCurrentPosition().then(function(position){
       _location.set({

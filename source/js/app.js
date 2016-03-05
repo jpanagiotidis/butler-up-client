@@ -5,7 +5,7 @@ import {render} from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
 import {history} from './managers/StateManager.js';
 import {init as appInit} from './actions/app.js';
-import {setMap, setInitPosition} from './managers/ActionsManager.js';
+import {initMap, initPosition} from './actions/map.js';
 import {init as stringsInit} from './managers/StringsManager.js';
 import {fetchPlaceTypes} from './actions/placeTypes.js';
 import {InitLoader, TitleView, MainView, PlacesListView, PlaceView, PlaceTypes, MapView, PlaceTypesSelectorView, NotFound} from './components';
@@ -14,8 +14,8 @@ import '../scss/main.scss';
 render(<InitLoader/>, document.getElementById('appFrame'));
 
 Promise.all([
-  setInitPosition(), 
-  setMap(), 
+  initMap(),
+  initPosition(), 
   fetchPlaceTypes(),
   appInit()
 ])
