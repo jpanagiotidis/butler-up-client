@@ -75,7 +75,6 @@ class MapView extends Component{
 
   render(){
     const self = this;
-    console.log('RENDERING MAP')
     self.drawPlaces();
     return (
       <div className="bu-map-holder">
