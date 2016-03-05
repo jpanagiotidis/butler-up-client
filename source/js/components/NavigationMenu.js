@@ -19,7 +19,7 @@ class NavigationMenu extends Component{
           </li>
           <li>
             <Link to="/map">
-              <i className="bu-btn-map fa fa-2x fa-search"></i>
+              <i className="bu-btn-map fa fa-2x fa-globe"></i>
             </Link>
           </li>
         </ul>
