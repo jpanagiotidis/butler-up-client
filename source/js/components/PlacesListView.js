@@ -40,7 +40,7 @@ class PlacesListView extends Component{
       }, item);
       return (<PlaceListItem {...props}/>);
     })
-    .slice(0, 1)
+    // .slice(0, 20)
   }
 
   render(){
@@ -61,19 +61,6 @@ class PlacesListView extends Component{
     }
   }
 }
-
-// function calculateDistance(a, b){
-//   console.log('a', a.latitude, a.longitud);
-//   console.log('b', b.latitude, b.longitud);
-//   console.log('sub', Math.pow(parseFloat(b.longitude) - parseFloat(a.longitude), 2) - 
-//       Math.pow(parseFloat(b.latitude) - parseFloat(a.latitude), 2))
-//   return Math.sqrt(
-//     Math.abs(
-//       Math.pow(parseFloat(b.longitude) - parseFloat(a.longitude), 2) - 
-//       Math.pow(parseFloat(b.latitude) - parseFloat(a.latitude), 2)
-//     )
-//   );
-// }
 
 function getDistance(lat1,lon1,lat2,lon2) {
   var R = 6371; // Radius of the earth in km
