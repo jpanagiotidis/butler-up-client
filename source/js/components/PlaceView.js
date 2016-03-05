@@ -82,8 +82,8 @@ class PlaceView extends Component{
       });
       content = (
         <article className="bu-place">
-          <h1 className="bu-place-header">{place.title}</h1>
-          <section className="bu-place-image-holder">
+          <h1 className="bu-place-header bu-section">{place.title}</h1>
+          <section className="bu-place-image-holder bu-section">
             <img src={place.main_image}/>
           </section>
           <h2 className="bu-place-section-header bu-section">{getString(['place', 'description'])}</h2>
