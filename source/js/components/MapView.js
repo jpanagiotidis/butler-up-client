@@ -3,6 +3,7 @@
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
 import {Link, browserHistory} from 'react-router';
+import {setLocation, getLocation, setZoom, getZoom} from '../actions/map.js';
 import {getActivePlaces} from '../actions/places.js';
 
 let markers = [];
@@ -20,8 +21,17 @@ class MapView extends Component{
     const self = this;
 
     self.map = new google.maps.Map(document.getElementById('mapFrame'), {
-      center: {lat: self.props.location.latitude, lng: self.props.location.longitude},
-      zoom: 16
+      center: {lat: getLocation().latitude, lng: getLocation().longitude},
+      zoom: getZoom()
+    });
+
+    self.map.addListener('dragend', function(){
+      const center = self.map.getCenter();
+      setLocation(center.lat(), center.lng());
+    });
+
+    self.map.addListener('zoom_changed', function(){
+      setZoom(self.map.getZoom());
     });
 
     self.drawPlaces();
@@ -65,6 +75,7 @@ class MapView extends Component{
 
   render(){
     const self = this;
+    console.log('RENDERING MAP')
     self.drawPlaces();
     return (
       <div className="bu-map-holder">
@@ -81,7 +92,6 @@ class MapView extends Component{
 
 export default branch(MapView, {
   cursors: {
-    location: ['location'],
     items: ['places', 'activeItems']
   }
 });

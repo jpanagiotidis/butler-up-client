@@ -3,7 +3,7 @@
 import {tree} from '../managers/StateManager.js';
 import scriptjs from 'scriptjs';
 
-const _location = tree.select('location');
+const _map = tree.select('map');
 
 let mapPromise;
 
@@ -21,18 +21,39 @@ export function initMap(){
 export function initPosition(){
   return new Promise((resolve, reject) => {
     getCurrentPosition().then(function(position){
-      _location.set({
+      _map.set(['location'], {
         latitude: position.coords.latitude,
         longitude: position.coords.longitude
       });
       resolve(position);
     }).catch(function(err){
-      _location.set({
+      _map.set(['location'], {
         latitude: 37.980528,
         longitude: 23.73313
       });
     });
+
+    _map.set(['zoom'], 16);
   });
+}
+
+export function setLocation(lat, lng){
+  _map.set(['location'], {
+    latitude: lat,
+    longitude: lng
+  });
+}
+
+export function getLocation(){
+  return _map.get(['location']);
+}
+
+export function setZoom(zoom){
+  _map.set(['zoom'], zoom);
+}
+
+export function getZoom(){
+  return _map.get(['zoom']);
 }
 
 export function getCurrentPosition(){
