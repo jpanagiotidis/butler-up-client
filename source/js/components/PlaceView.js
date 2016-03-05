@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
-import {fetchPlace} from '../managers/ActionsManager.js';
+import {getPlace} from '../actions/places.js';
 
 class PlaceView extends Component{
   constructor(props){
@@ -11,25 +11,25 @@ class PlaceView extends Component{
 
   componentWillMount(){
     const self = this;
-    fetchPlace(self.props.params.placeId);
+    getPlace(self.props.params.placeId);
   }
 
   render(){
     const self = this;
-    console.log(self.props.item);
+    const place = self.props.places[self.props.params.placeId];
     
     let content;
     if(self.props.isLoading){
       content = (<h1>Loading...</h1>)
-    }else if(self.props.item){
+    }else if(place){
       content = (
         <article className="bu-place">
-          <h1 className="bu-place-header">{self.props.item.title}</h1>
+          <h1 className="bu-place-header">{place.title}</h1>
           <div className="bu-place-image-holder">
-            <img src={self.props.item.image}/>
+            <img src={place.main_image}/>
           </div>
           <div className="bu-place-description">
-            <p>{self.props.item.description}</p>
+            {place.description}
           </div>
         </article>
       );
@@ -44,7 +44,7 @@ class PlaceView extends Component{
 
 export default branch(PlaceView, {
   cursors: {
-    isLoading: ['place', 'isLoading'],
-    item: ['place', 'item']
+    isLoading: ['places', 'isLoading'],
+    places: ['places', 'fullItems']
   }
 });

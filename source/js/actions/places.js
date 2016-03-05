@@ -12,7 +12,8 @@ _places.set({
   isLoading: false,
   lastUpdate: undefined,
   items: [],
-  activeItems: []
+  activeItems: [],
+  fullItems: {}
 });
 
 export function getActivePlaces(){
@@ -94,15 +95,61 @@ function fetchAllPlaces(){
   });
 };
 
-function getLocationArg(){
-  return 'all';
+export function getPlace(id){
+  return new Promise((resolve, reject) => {
+    _places.set('isLoading', true);
+    if(shouldUpdatePlace(id)){
+      fetchPlace(id)
+      .then((res) => {
+        _places.set('isLoading', false);
+        resolve(res);
+      })
+      .catch((err) => {
+        _places.set('isLoading', false);
+        console.log(err);
+        reject(err);
+      });
+    }else{
+      _places.set('isLoading', false);
+      resolve(_places.get(['fullItems', id]));
+    }
+  });
 }
 
-function getTypesArg(){
-  const args = getActiveTypes();
-  if(isArray(args)){
-    return args.join('+');
+function shouldUpdatePlace(id){
+  const place = _places.get(['fullItems', id]);
+
+  if(place){
+    const currentTime = (new Date()).getTime();
+    if(place.lastUpdate === undefined || cachingMilli < currentTime - place.lastUpdate){
+      return true;
+    }else{
+      return false;
+    }
   }else{
-    return args;
+    return true;
   }
+}
+
+function fetchPlace(id){
+  return new Promise((resolve, reject) => {
+    const url = [
+      getUrl(),
+      'api/get-place',
+      id
+    ];
+
+    request
+    .get(url.join('/'))
+    .end(function(err, res){
+      if(err){
+        reject(err);
+      }else{
+        const out = res.body;
+        out.lastUpdate = (new Date()).getTime();
+        _places.set(['fullItems', id], out);
+        resolve(res);
+      }
+    });
+  });
 }

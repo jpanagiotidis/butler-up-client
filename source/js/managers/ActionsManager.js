@@ -6,31 +6,7 @@ import {tree} from './StateManager.js';
 import {getActive as getActiveTypes} from '../actions/placeTypes.js';
 import scriptjs from 'scriptjs';
 
-const _places = tree.select('places');
-const _place = tree.select('place');
 const _location = tree.select('location');
-
-export function fetchPlace(id){
-  return new Promise((resolve, reject) => {
-    _place.set('isLoading', true);
-    request
-    .get(getUrl() + '/get-place/' + id)
-    .end(function(err, res){
-      if(err){
-        _place.set('isLoading', false);
-        reject(err);
-      }else{
-        let out;
-        if(res.body.results.length > 0){
-          out = res.body.results[0];
-          _place.set('item', out);
-          _place.set('isLoading', false);
-        }
-        resolve(out);
-      }
-    });
-  });
-}
 
 let mapPromise;
 
