@@ -14,6 +14,54 @@ class PlaceView extends Component{
     getPlace(self.props.params.placeId);
   }
 
+  getInfoTable(){
+    const self = this;
+    const place = self.props.places[self.props.params.placeId];
+    const out = [];
+    if(place.phones && place.phones.length > 0){
+      place.phones.forEach(function(phone, index){
+        out.push({
+          "label": index === 0 ? "Τηλέφωνο" : "",
+          "value": phone
+        });
+      });
+    }
+
+    if(place.location){
+      if(place.location.street){
+        out.push({
+          "label": "Διεύθυνση:",
+          "value": place.location.street
+        });
+      }
+      if(place.location.city){
+        out.push({
+          "label": "Πόλη:",
+          "value": place.location.city
+        });
+      }
+    }
+
+    return (
+      <table>
+        <tbody>
+          {out.map(function(info, index){
+            return (
+              <tr key={index}>
+                <th>
+                  {info.label}
+                </th>
+                <td>
+                  {info.value}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    );
+  }
+
   render(){
     const self = this;
     const place = self.props.places[self.props.params.placeId];
@@ -50,26 +98,7 @@ class PlaceView extends Component{
           </section>
           <h2 className="bu-place-section-header bu-section">Πληροφορίες</h2>
           <section className="bu-place-info">
-            <table>
-              <tbody>
-                <tr>
-                  <th>
-                    Διεύθυνση:
-                  </th>
-                  <td>
-                    asdfasfads
-                  </td>
-                </tr>
-                <tr>
-                  <th>
-                    Τηλέφωνο:
-                  </th>
-                  <td>
-                    asdfasfads
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            {self.getInfoTable()}
           </section>
         </article>
       );
