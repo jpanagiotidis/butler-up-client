@@ -16,7 +16,7 @@ const _placeTypes = tree.select('placeTypes');
 export function fetchPlaceTypes(){
   return new Promise((resolve, reject) => {
     request
-    .get(getUrl() + '/get-place-types')
+    .get(getUrl() + '/api/get-place-types')
     .end(function(err, res){
       if(err){
         reject(err);

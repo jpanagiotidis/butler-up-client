@@ -74,7 +74,7 @@ function fetchAllPlaces(){
   return new Promise((resolve, reject) => {
     const url = [
       getUrl(),
-      'get-places'
+      'api/get-places'
     ];
     request
     .get(url.join('/'))
