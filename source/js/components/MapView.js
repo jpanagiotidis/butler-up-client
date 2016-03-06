@@ -78,11 +78,6 @@ class MapView extends Component{
     self.drawPlaces();
     return (
       <div className="bu-map-holder">
-        <div className="bu-map-switch">
-          <Link to="/place">
-            <i className="fa fa-2x fa-bars"/>
-          </Link>
-        </div>
         <div id="mapFrame"/>
       </div>
     );

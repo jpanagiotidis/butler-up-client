@@ -17,7 +17,7 @@ class MainView extends Component{
         <div className="bu-content-frame">
           {self.props.children}
         </div>
-        <NavigationMenu/>
+        <NavigationMenu pathname={self.props.location.pathname}/>
       </div>
     );
   }

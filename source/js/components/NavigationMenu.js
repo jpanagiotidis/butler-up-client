@@ -9,6 +9,22 @@ class NavigationMenu extends Component{
   }
 
   render(){
+    const self = this;
+
+    let searchLink;
+    if(self.props.pathname === '/map'){
+      searchLink = (
+        <Link to="/place">
+          <i className="bu-btn-map fa fa-2x fa-bars"></i>
+        </Link>
+      );
+    }else{
+      searchLink = (
+        <Link to="/map">
+          <i className="bu-btn-map fa fa-2x fa-globe"></i>
+        </Link>
+      );
+    }
     return (
       <nav className="bu-nav-menu">
         <ul>
@@ -18,9 +34,7 @@ class NavigationMenu extends Component{
             </Link>
           </li>
           <li>
-            <Link to="/map">
-              <i className="bu-btn-map fa fa-2x fa-globe"></i>
-            </Link>
+            {searchLink}
           </li>
         </ul>
       </nav>
