@@ -7,7 +7,6 @@ import {history} from './managers/StateManager.js';
 import {init as appInit} from './actions/app.js';
 import {initMap, initPosition} from './actions/map.js';
 import {init as stringsInit} from './managers/StringsManager.js';
-import {fetchPlaceTypes} from './actions/placeTypes.js';
 import {InitLoader, TitleView, MainView, PlacesListView, PlaceView, PlaceTypes, MapView, PlaceTypesSelectorView, NotFound} from './components';
 import '../scss/main.scss';
 
@@ -16,7 +15,6 @@ render(<InitLoader/>, document.getElementById('appFrame'));
 Promise.all([
   initMap(),
   initPosition(), 
-  fetchPlaceTypes(),
   appInit()
 ])
 .then(function(res){

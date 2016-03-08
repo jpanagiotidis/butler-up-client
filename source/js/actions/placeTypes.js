@@ -13,31 +13,19 @@ const icons = {
 const idsCache = {};
 const _placeTypes = tree.select('placeTypes');
 
-export function fetchPlaceTypes(){
-  return new Promise((resolve, reject) => {
-    request
-    .get(getUrl() + '/api/get-place-types')
-    .end(function(err, res){
-      if(err){
-        reject(err);
-      }else{
-        setPlaceTypes(res.body.place_types);
-        resolve();
-      }
-    });
-  });
+export function init(data){
+  setPlaceTypes(data);
 }
 
 function setPlaceTypes(data){
   var types = {};
 
-  data.forEach(function(obj){
-    const type = obj.type;
+  data.forEach(function(type){
     if(icons[type.name]){
-      types[type.tid] = {
-        id: type.tid,
+      types[type.id] = {
+        id: type.id,
         name: type.name,
-        visible: type.field_cf_place_type_visible_name,
+        visible: type.visible_name,
         icon: icons[type.name],
         isActive: true
       };
