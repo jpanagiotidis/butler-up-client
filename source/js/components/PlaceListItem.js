@@ -22,11 +22,6 @@ class PlaceListItem extends Component{
   render(){
     const self = this;
 
-    // const iconClasses = [
-    //   'fa',
-    //   'fa-3x',
-    //   self.props.icon
-    // ];
     return (
       <li className="bu-place-list-item">
         <Link to={`/place/${self.props.id}`}>

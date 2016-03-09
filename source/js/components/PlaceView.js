@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
 import {getPlace} from '../actions/places.js';
 import {getString} from '../managers/StringsManager.js';
+import {Loader} from '../components';
 
 class PlaceView extends Component{
   constructor(props){
@@ -69,7 +70,7 @@ class PlaceView extends Component{
     
     let content;
     if(self.props.isLoading){
-      content = (<h1>Loading...</h1>)
+      content = (<Loader/>)
     }else if(place){
       const catalogues = place.catalogues.map(function(cat, index){
         return (
@@ -81,35 +82,35 @@ class PlaceView extends Component{
         );
       });
       content = (
-        <article className="bu-place">
-          <h1 className="bu-place-header bu-section">{place.title}</h1>
-          <section className="bu-place-image-holder bu-section">
-            <img src={place.main_image}/>
-          </section>
-          <h2 className="bu-place-section-header bu-section">{getString(['place', 'description'])}</h2>
-          <section 
-            className="bu-place-description bu-section"
-            dangerouslySetInnerHTML={{__html:place.description}}
-          />
-          <h2 className="bu-place-section-header bu-section">{getString(['place', 'catalogues'])}</h2>
-          <section className="bu-place-catalogues">
-            <ul className="catalogues">
-              {catalogues}
-            </ul>
-          </section>
-          <h2 className="bu-place-section-header bu-section">{getString(['place', 'info'])}</h2>
-          <section className="bu-place-info">
-            {self.getInfoTable()}
-          </section>
-        </article>
+        <div>
+          <article className="bu-place">
+            <h1 className="bu-place-header bu-section">{place.title}</h1>
+            <section className="bu-place-image-holder bu-section">
+              <img src={place.main_image}/>
+            </section>
+            <h2 className="bu-place-section-header bu-section">{getString(['place', 'description'])}</h2>
+            <section 
+              className="bu-place-description bu-section"
+              dangerouslySetInnerHTML={{__html:place.description}}
+            />
+            <h2 className="bu-place-section-header bu-section">{getString(['place', 'catalogues'])}</h2>
+            <section className="bu-place-catalogues">
+              <ul className="catalogues">
+                {catalogues}
+              </ul>
+            </section>
+            <h2 className="bu-place-section-header bu-section">{getString(['place', 'info'])}</h2>
+            <section className="bu-place-info">
+              {self.getInfoTable()}
+            </section>
+          </article>
+        </div>
       );
+    }else{
+      content = (<div/>);
     }
     
-    return(
-      <div>
-        {content}
-      </div>
-    );
+    return content;
   }
 }
 
