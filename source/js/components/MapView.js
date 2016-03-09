@@ -22,6 +22,7 @@ class MapView extends Component{
 
     self.map = new google.maps.Map(document.getElementById('mapFrame'), {
       center: {lat: getLocation().latitude, lng: getLocation().longitude},
+      disableDefaultUI: true,
       zoom: getZoom()
     });
 
@@ -78,6 +79,9 @@ class MapView extends Component{
     self.drawPlaces();
     return (
       <div className="bu-map-holder">
+        <Link to="/">
+          <img className="bu-map-logo" src="images/logo-icon.png"/>
+        </Link>
         <div id="mapFrame"/>
       </div>
     );
