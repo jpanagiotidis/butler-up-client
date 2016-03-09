@@ -23,16 +23,22 @@ class PlacesListView extends Component{
 
     return self.props.items
     .slice()
+    .map(function(place){
+      return Object.assign({}, place, {
+        distance: getDistance(loc.latitude, loc.longitude, place.latitude, place.longitude)
+      });
+    })
     .sort(function(a, b){
-      const distA = getDistance(loc.latitude, loc.longitude, a.latitude, a.longitude);
-      const distB = getDistance(loc.latitude, loc.longitude, b.latitude, b.longitude);
-      if(distA > distB){
+      if(a.distance > b.distance){
         return 1;
-      }else if(distA < distB){
+      }else if(a.distance < b.distance){
         return -1;
       }else{
         return 0;
       }
+    })
+    .filter(function(place){
+      return place.distance < 10;
     })
     .map(item => {
       const props = Object.assign({
