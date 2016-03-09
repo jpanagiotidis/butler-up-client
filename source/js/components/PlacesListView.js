@@ -3,6 +3,7 @@
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
 import {Link} from 'react-router';
+import {getMaxListSize, getMaximumListDistance} from '../actions/app.js';
 import {getActivePlaces} from '../actions/places.js';
 import {getLocation} from '../actions/map.js';
 import {Loader} from '../components';
@@ -38,7 +39,7 @@ class PlacesListView extends Component{
       }
     })
     .filter(function(place){
-      return place.distance < 10;
+      return place.distance < getMaximumListDistance();
     })
     .map(item => {
       const props = Object.assign({
@@ -46,7 +47,7 @@ class PlacesListView extends Component{
       }, item);
       return (<PlaceListItem {...props}/>);
     })
-    // .slice(0, 20)
+    .slice(0, getMaxListSize())
   }
 
   render(){

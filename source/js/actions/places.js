@@ -4,8 +4,8 @@ import request from 'superagent';
 import {filter, isArray, intersection} from 'underscore';
 import {getUrl} from '../configuration';
 import {tree} from '../managers/StateManager.js';
+import {getCachingMillis} from '../actions/app.js';
 import {getActive as getActiveTypes} from '../actions/placeTypes.js';
-import {cachingMilli} from '../configuration';
 
 const _places = tree.select('places');
 _places.set({
@@ -63,7 +63,7 @@ export function getPlaces(){
 function shouldUpdatePlaces(){
   const lastUpdate = _places.get(['lastUpdate']);
   const currentTime = (new Date()).getTime();
-  if(lastUpdate === undefined || cachingMilli < currentTime - lastUpdate){
+  if(lastUpdate === undefined || getCachingMillis() < currentTime - lastUpdate){
     return true;
   }else{
     return false;
@@ -121,7 +121,7 @@ function shouldUpdatePlace(id){
 
   if(place){
     const currentTime = (new Date()).getTime();
-    if(place.lastUpdate === undefined || cachingMilli < currentTime - place.lastUpdate){
+    if(place.lastUpdate === undefined || getCachingMillis() < currentTime - place.lastUpdate){
       return true;
     }else{
       return false;
