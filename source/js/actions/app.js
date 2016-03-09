@@ -9,7 +9,6 @@ export function init(){
   return new Promise((resolve, reject) => {
     fetchInitData()
     .then((res) => {
-      console.log(res);
       stringsInit(res.strings);
       placeTypesInit(res.place_types);
       resolve();

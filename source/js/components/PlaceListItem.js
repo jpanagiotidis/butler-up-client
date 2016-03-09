@@ -4,20 +4,29 @@ import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
 import {Link} from 'react-router';
 import {getActivePlaces} from '../actions/places.js';
+import {getTypeIcon} from '../actions/placeTypes.js';
 
 class PlaceListItem extends Component{
   constructor(props){
     super(props);
   }
 
+  getIcons(){
+    const self = this;
+    
+    return self.props.type.map(function(type){
+      return (<i key={type} className={`fa fa-2x ${getTypeIcon(type)}`}/>);
+    });
+  }
+
   render(){
     const self = this;
 
-    const iconClasses = [
-      'fa',
-      'fa-3x',
-      self.props.icon
-    ];
+    // const iconClasses = [
+    //   'fa',
+    //   'fa-3x',
+    //   self.props.icon
+    // ];
     return (
       <li className="bu-place-list-item">
         <Link to={`/place/${self.props.id}`}>
@@ -27,7 +36,9 @@ class PlaceListItem extends Component{
               <img src={self.props.image}/>
             </div>
             <div className="bu-list-item-type">
-              <i className={iconClasses.join(' ')}/>
+              <div className="bu-list-item-type-holder">
+                {self.getIcons()}
+              </div>
             </div>
           </div>
         </Link>

@@ -4,7 +4,7 @@ import request from 'superagent';
 import {filter, isArray, intersection} from 'underscore';
 import {getUrl} from '../configuration';
 import {tree} from '../managers/StateManager.js';
-import {getActive as getActiveTypes, getTypeIcon} from '../actions/placeTypes.js';
+import {getActive as getActiveTypes} from '../actions/placeTypes.js';
 import {cachingMilli} from '../configuration';
 
 const _places = tree.select('places');
@@ -84,12 +84,9 @@ function fetchAllPlaces(){
       }else{
         const out = res.body.map(function(place){
           return Object.assign(place, {
-            type: place.type.split(', '),
-            icon: '1'
-            // icon: getTypeIcon(place.type)
+            type: place.type.split(', ')
           });
         });
-        console.log(out);
         _places.set('items', out);
         _places.set('lastUpdate', (new Date()).getTime());
         resolve(out);
