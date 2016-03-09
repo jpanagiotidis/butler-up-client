@@ -59,7 +59,7 @@ class MapView extends Component{
 
         const marker = new google.maps.Marker({
           position: pos,
-          label: place.type
+          label: place.type[0]
         });
 
         marker.setMap(self.map);

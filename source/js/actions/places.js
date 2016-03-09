@@ -1,7 +1,7 @@
 'user strict';
 
 import request from 'superagent';
-import {filter, isArray} from 'underscore';
+import {filter, isArray, intersection} from 'underscore';
 import {getUrl} from '../configuration';
 import {tree} from '../managers/StateManager.js';
 import {getActive as getActiveTypes, getTypeIcon} from '../actions/placeTypes.js';
@@ -22,7 +22,7 @@ export function getActivePlaces(){
     .then((res) => {
       const activeTypes = getActiveTypes();
       const activeItems = filter(res, (place) => {
-        if(activeTypes === 'all' || activeTypes.indexOf(place.type) !== -1){
+        if(activeTypes === 'all' || intersection(activeTypes, place.type).length > 0){
           return true;
         }else{
           return false;
@@ -84,9 +84,12 @@ function fetchAllPlaces(){
       }else{
         const out = res.body.map(function(place){
           return Object.assign(place, {
-            icon: getTypeIcon(place.type)
+            type: place.type.split(', '),
+            icon: '1'
+            // icon: getTypeIcon(place.type)
           });
         });
+        console.log(out);
         _places.set('items', out);
         _places.set('lastUpdate', (new Date()).getTime());
         resolve(out);
