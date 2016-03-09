@@ -24,6 +24,9 @@ var webpackConfig = {
       {
         test: /\.js$/,
         loader: 'babel'
+      },
+      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
+        loader: 'url-loader?limit=100000' 
       }
     ]
   },
@@ -37,6 +40,10 @@ var webpackConfig = {
       {
         from: __dirname + '/static/fa',
         to: __dirname + '/fa'
+      },
+      {
+        from: __dirname + '/static/fonts',
+        to: __dirname + '/fonts'
       }
     ])
   ]

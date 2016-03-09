@@ -5,10 +5,13 @@
 			"path": "."
 		},
 		{
-			"path": "/Users/jpanagiotidis/Documents/projects/buttler-up-server"
+			"path": "../buttler-up-server"
 		},
 		{
-			"path": "/Users/jpanagiotidis/Documents/projects/technical-notes"
+			"path": "../technical-notes"
+		},
+		{
+			"path": "../stroll-it-old-mobile-client"
 		}
 	]
 }
