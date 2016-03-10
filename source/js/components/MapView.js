@@ -5,6 +5,7 @@ import {branch} from 'baobab-react/higher-order';
 import {Link, browserHistory} from 'react-router';
 import {setLocation, getLocation, setZoom, getZoom} from '../actions/map.js';
 import {getActivePlaces} from '../actions/places.js';
+// import CustomMarker from '../utils/CustomMarker.js';
 
 let markers = [];
 
@@ -51,6 +52,8 @@ class MapView extends Component{
 
   drawPlaces(){
     const self = this;
+    const CustomMarker = require('../utils/CustomMarker.js').default;
+    console.log(CustomMarker)
 
     self.clearPlaces();
     
@@ -58,6 +61,7 @@ class MapView extends Component{
       self.props.items.forEach(function(place){
         const pos = new google.maps.LatLng(place.latitude, place.longitude);
 
+        const cMarker = new CustomMarker(pos, self.map, {});
         const marker = new google.maps.Marker({
           position: pos,
           label: place.type[0]
@@ -65,11 +69,11 @@ class MapView extends Component{
 
         marker.setMap(self.map);
 
-        marker.addListener('click', function(){
-          self.props.history.pushState(null, '/place/' + place.id);
-        });
+        // marker.addListener('click', function(){
+        //   self.props.history.pushState(null, '/place/' + place.id);
+        // });
 
-        markers.push(marker);
+        // markers.push(marker);
       });
     }
   }
