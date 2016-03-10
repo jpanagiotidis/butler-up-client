@@ -11,6 +11,7 @@ CustomMarker.prototype.draw = function() {
   var self = this;
   
   var div = this.div;
+  var icon = this.icon;
   
   if (!div) {
   
@@ -22,13 +23,13 @@ CustomMarker.prototype.draw = function() {
     div.style.cursor = 'pointer';
     div.style.width = '34px';
     div.style.height = '34px';
-    div.style.background = 'red';
+    div.style.background = '#B75140';
     div.style.borderRadius = '17px';
     div.style.textAlign = 'center';
 
-    const icon = document.createElement('i');
+    icon = document.createElement('i');
     icon.style.lineHeight = '34px';
-    icon.className = 'fa fa-2x fa-map';
+    icon.className = 'fa fa-2x ' + self.args.type;
 
     div.appendChild(icon);
     
@@ -53,10 +54,14 @@ CustomMarker.prototype.draw = function() {
 };
 
 CustomMarker.prototype.remove = function() {
+  if(this.icon){
+    this.icon.parentNode.removeChild(this.icon);
+    this.icon = null;
+  }
   if (this.div) {
     this.div.parentNode.removeChild(this.div);
     this.div = null;
-  } 
+  }
 };
 
 CustomMarker.prototype.getPosition = function() {
