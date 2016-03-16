@@ -45,17 +45,39 @@ class PlaceView extends Component{
       }
     }
 
+    if(place.email){
+      out.push({
+        "label": getString(['place', 'email']),
+        "value_email": place.email
+      })
+    }
+
+    if(place.website){
+      out.push({
+        "label": getString(['place', 'website']),
+        "value_href": place.website
+      })
+    }
+
     return (
       <table>
         <tbody>
           {out.map(function(info, index){
+            let value;
+            if(info.value){
+              value = info.value;
+            }else if(info.value_href){
+              value = (<a href={info.value_href}>{info.value_href}</a>);
+            }else if(info.value_email){
+              value = (<a href={"mailto:" + info.value_email}>{info.value_email}</a>);
+            }
             return (
               <tr key={index}>
                 <th>
                   {info.label}
                 </th>
                 <td>
-                  {info.value}
+                  {value}
                 </td>
               </tr>
             );
