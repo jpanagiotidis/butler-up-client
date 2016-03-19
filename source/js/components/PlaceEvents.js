@@ -28,6 +28,7 @@ class PlaceEvents extends Component{
           </Link>
         );
       })
+      
       return (
         <div>
           <h2 className="bu-section-header bu-section">{getString(['place', 'events'])}</h2>

@@ -8,6 +8,7 @@ export {default as PlaceView} from './PlaceView.js';
 export {default as PlaceInfoTable} from './PlaceInfoTable.js';
 export {default as PlaceOffers} from './PlaceOffers.js';
 export {default as PlaceEvents} from './PlaceEvents.js';
+export {default as PlaceImages} from './PlaceImages.js';
 export {default as PlaceTypes} from './PlaceTypes.js';
 export {default as PlaceTypeItem} from './PlaceTypeItem.js';
 export {default as MapView} from './MapView.js';

@@ -1,7 +1,8 @@
 article.bu-place{
   section.bu-place-catalogues,
   section.bu-place-offers,
-  section.bu-place-events{
+  section.bu-place-events,
+  section.bu-place-images{
     ul{
       padding: 0;
       margin: 0;
@@ -63,6 +64,28 @@ article.bu-place{
         }
       }
     }
+  }
+
+  section.bu-place-images{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 120px;
+
+    ul{
+      height: 100%;
+      width: 200%;
+      
+      li.bu-image-item{
+        display: inline-block;
+        height: 100%;
+        
+        img{
+          height: 100%;
+        }
+      }
+    }
+
   }
 
   // section.bu-place-offers ul li span{
