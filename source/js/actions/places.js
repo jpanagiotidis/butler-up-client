@@ -2,7 +2,7 @@
 
 import request from 'superagent';
 import {filter, isArray, intersection} from 'underscore';
-import {getUrl} from '../configuration';
+import {getUrl} from '../actions/app.js';
 import {tree} from '../managers/StateManager.js';
 import {getCachingMillis} from '../actions/app.js';
 import {getActive as getActiveTypes} from '../actions/placeTypes.js';

@@ -30,7 +30,6 @@ class EventView extends Component{
 
     let content;
     if(self.props.isLoading){
-      console.log('LOADING')
       content = (<Loader/>)
     }else if(event){
       const subTitle = event.text_date ? (
@@ -60,7 +59,6 @@ class EventView extends Component{
         </div>
       );
     }else{
-      console.log('AAA')
       content = (<div/>);
     }
     return content;

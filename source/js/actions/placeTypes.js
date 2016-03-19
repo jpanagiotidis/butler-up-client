@@ -1,7 +1,6 @@
 'user strict';
 
 import request from 'superagent';
-import {getUrl} from '../configuration';
 import {tree} from '../managers/StateManager.js';
 import {filter, size} from 'underscore';
 
