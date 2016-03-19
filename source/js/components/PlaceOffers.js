@@ -3,6 +3,7 @@
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
 import {getString} from '../managers/StringsManager.js';
+import {ListBox} from '../components';
 
 class PlaceOffers extends Component{
   constructor(props){
@@ -15,9 +16,12 @@ class PlaceOffers extends Component{
 
       const offers = self.props.offers.map(function(offer, index){
         return (
-          <li className="bu-section" key={index}>
-            <span>{offer.title}</span>
-          </li>
+          <ListBox
+            key={index}
+            title={offer.title}
+            sub_title={offer.sub_title}
+            image={offer.image}
+          />
         );
       })
       return (

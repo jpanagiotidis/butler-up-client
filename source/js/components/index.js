@@ -14,4 +14,5 @@ export {default as PlaceTypeItem} from './PlaceTypeItem.js';
 export {default as MapView} from './MapView.js';
 export {default as EventView} from './EventView.js';
 export {default as GalleryView} from './GalleryView.js';
+export {default as ListBox} from './ListBox.js';
 export {default as NotFound} from './NotFound.js';

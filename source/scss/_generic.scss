@@ -1,3 +1,48 @@
 ul{
   margin: 0;
 }
+
+li.bu-list-box{
+  display: block;
+  position: relative;
+  height: 120px;
+  overflow: hidden;
+
+  img{
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    @include transform(translateY(-50%));
+  }
+
+  .bu-list-box-title{
+    display: inline-block;
+    position: relative;
+    padding: 0 1.2em;
+    width: 100%;
+    height: auto !important;
+    top: 50%;
+    @include transform(translateY(-50%));
+    z-index: 9;
+    
+    h3, h4{
+      color: $color_d;
+    }
+
+    h4{
+      font-size: 0.8em;
+    }
+  }
+
+  .bu-list-box-base{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+    padding: 0;
+  }
+}
