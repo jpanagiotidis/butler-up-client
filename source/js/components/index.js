@@ -11,4 +11,5 @@ export {default as PlaceEvents} from './PlaceEvents.js';
 export {default as PlaceTypes} from './PlaceTypes.js';
 export {default as PlaceTypeItem} from './PlaceTypeItem.js';
 export {default as MapView} from './MapView.js';
+export {default as EventView} from './EventView.js';
 export {default as NotFound} from './NotFound.js';

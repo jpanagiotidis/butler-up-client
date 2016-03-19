@@ -1,35 +1,4 @@
 article.bu-place{
-  h1.bu-place-header{
-    padding: 0.6em;
-    color: $color_d;
-  }
-
-  section.bu-place-image-holder{
-    display: block;
-    width: 100%;
-
-    img{
-      display: block;
-      width: 100%;
-    }
-  }
-
-  section.bu-place-description{
-    background-color: $color_a;
-    padding: 0.6em;
-
-    p, a{
-      padding: 0.5em 0.3em;
-      color: $color_d;
-      text-align: justify;
-    }
-  }
-
-  h2.bu-place-section-header{
-    padding: 0.6em 0.6em;
-    color: $color_d;
-  }
-
   section.bu-place-catalogues,
   section.bu-place-offers,
   section.bu-place-events{

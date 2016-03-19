@@ -7,7 +7,18 @@ import {history} from './managers/StateManager.js';
 import {init as appInit} from './actions/app.js';
 import {initMap, initPosition} from './actions/map.js';
 import {init as stringsInit} from './managers/StringsManager.js';
-import {InitLoader, TitleView, MainView, PlacesListView, PlaceView, PlaceTypes, MapView, PlaceTypesSelectorView, NotFound} from './components';
+import {
+  InitLoader, 
+  TitleView, 
+  MainView, 
+  PlacesListView, 
+  PlaceView, 
+  PlaceTypes, 
+  MapView,
+  EventView, 
+  PlaceTypesSelectorView, 
+  NotFound
+} from './components';
 import '../scss/main.scss';
 
 render(<InitLoader/>, document.getElementById('appFrame'));
@@ -25,6 +36,7 @@ Promise.all([
         <Route path="/map" component={MapView}/>
         <Route path="/place" component={PlacesListView}/>
         <Route path="/place/:placeId" component={PlaceView}/>
+        <Route path="/place/:placeId/event/:eventId" component={EventView}/>
         <Route path="/settings" component={PlaceTypes}/>
       </Route>
       <Route path="*" component={NotFound}/>

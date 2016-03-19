@@ -22,7 +22,7 @@ class PlaceOffers extends Component{
       })
       return (
         <div>
-          <h2 className="bu-place-section-header bu-section">{getString(['place', 'offers'])}</h2>
+          <h2 className="bu-section-header bu-section">{getString(['place', 'offers'])}</h2>
           <section className="bu-place-offers">
             <ul>
               {offers}
