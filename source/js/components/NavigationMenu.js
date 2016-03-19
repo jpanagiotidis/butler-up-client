@@ -8,6 +8,12 @@ class NavigationMenu extends Component{
     super(props);
   }
 
+  goBack(evt){
+    evt.preventDefault();
+    evt.stopPropagation();
+    window.history.back();
+  }
+
   render(){
     const self = this;
 
@@ -28,6 +34,11 @@ class NavigationMenu extends Component{
     return (
       <nav className="bu-nav-menu">
         <ul>
+          <li>
+            <a href="#" onClick={self.goBack}>
+              <i className="bu-btn-settings fa fa-2x fa-arrow-circle-o-left"></i>
+            </a>
+          </li>
           <li>
             <Link to="/settings">
               <i className="bu-btn-settings fa fa-2x fa-cog"></i>
