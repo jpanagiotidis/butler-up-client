@@ -30,7 +30,8 @@ article.bu-place{
     color: $color_d;
   }
 
-  section.bu-place-catalogues{
+  section.bu-place-catalogues,
+  section.bu-place-offers{
     ul{
       padding: 0;
       margin: 0;
@@ -38,7 +39,7 @@ article.bu-place{
       li{
         background-color: $color_a;
 
-        a{
+        a, span{
           padding: 1.2em;
           display: inline-block;
           width: 100%;
@@ -48,6 +49,12 @@ article.bu-place{
       }
     }
   }
+
+  // section.bu-place-offers ul li span{
+  //   font-weight: bold;
+  //   letter-spacing: 0.2em;
+  //   font-size: 1.2em;
+  // }
 
   section.bu-place-info{
     table{

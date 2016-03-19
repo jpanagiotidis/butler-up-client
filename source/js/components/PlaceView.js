@@ -5,7 +5,11 @@ import {branch} from 'baobab-react/higher-order';
 import {getPlace} from '../actions/places.js';
 import {getTypeIcon} from '../actions/placeTypes.js';
 import {getString} from '../managers/StringsManager.js';
-import {PlaceInfoTable, Loader} from '../components';
+import {
+  Loader,
+  PlaceInfoTable, 
+  PlaceOffers
+} from '../components';
 
 class PlaceView extends Component{
   constructor(props){
@@ -64,6 +68,7 @@ class PlaceView extends Component{
                 {catalogues}
               </ul>
             </section>
+            <PlaceOffers offers={self.props.places[self.props.params.placeId].offers}/>
             <h2 className="bu-place-section-header bu-section">{getString(['place', 'info'])}</h2>
             <section className="bu-place-info">
               <PlaceInfoTable place={self.props.places[self.props.params.placeId]}/>
