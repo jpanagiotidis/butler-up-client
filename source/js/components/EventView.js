@@ -5,9 +5,7 @@ import {branch} from 'baobab-react/higher-order';
 import {getString} from '../managers/StringsManager.js';
 import {getPlace} from '../actions/places.js';
 import {find} from 'underscore';
-import {
-  Loader
-} from '../components';
+import {Loader} from '../components';
 
 class EventView extends Component{
   constructor(props){

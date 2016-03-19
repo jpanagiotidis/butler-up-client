@@ -15,7 +15,8 @@ import {
   PlaceView, 
   PlaceTypes, 
   MapView,
-  EventView, 
+  EventView,
+  GalleryView,
   PlaceTypesSelectorView, 
   NotFound
 } from './components';
@@ -37,6 +38,7 @@ Promise.all([
         <Route path="/place" component={PlacesListView}/>
         <Route path="/place/:placeId" component={PlaceView}/>
         <Route path="/place/:placeId/event/:eventId" component={EventView}/>
+        <Route path="/place/:placeId/gallery" component={GalleryView}/>
         <Route path="/settings" component={PlaceTypes}/>
       </Route>
       <Route path="*" component={NotFound}/>

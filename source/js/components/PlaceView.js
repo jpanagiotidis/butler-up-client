@@ -70,7 +70,7 @@ class PlaceView extends Component{
                 {catalogues}
               </ul>
             </section>
-            <PlaceImages images={self.props.places[self.props.params.placeId].gallery}/>
+            <PlaceImages placeId={self.props.params.placeId} images={self.props.places[self.props.params.placeId].gallery}/>
             <PlaceEvents placeId={self.props.params.placeId} events={self.props.places[self.props.params.placeId].events}/>
             <PlaceOffers offers={self.props.places[self.props.params.placeId].offers}/>
             <h2 className="bu-section-header bu-section">{getString(['place', 'info'])}</h2>

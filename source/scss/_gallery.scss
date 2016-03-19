@@ -1,0 +1,15 @@
+article{
+  section.bu-gallery{
+    img{
+      width: 100%;
+    }
+
+    span.bu-image-title{
+      display: block;
+      position: relative;
+      width: 100%;
+      color: $color-d;
+      padding: 0.5em 1em;
+    }
+  }
+}

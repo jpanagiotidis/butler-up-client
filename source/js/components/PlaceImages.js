@@ -1,6 +1,7 @@
 'use strict';
 
 import React, {Component} from 'react';
+import {Link} from 'react-router';
 import {getString} from '../managers/StringsManager.js';
 
 class PlaceImages extends Component{
@@ -23,9 +24,11 @@ class PlaceImages extends Component{
         <div>
           <h2 className="bu-section-header bu-section">{getString(['place', 'images'])}</h2>
           <section className="bu-place-images bu-section">
-            <ul>
-              {images}
-            </ul>
+            <Link to={`/place/${self.props.placeId}/gallery`}>
+              <ul>
+                {images}
+              </ul>
+            </Link>
           </section>
         </div>
       );
