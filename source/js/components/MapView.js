@@ -35,8 +35,6 @@ class MapView extends Component{
     self.map.addListener('zoom_changed', function(){
       setZoom(self.map.getZoom());
     });
-
-    self.drawPlaces();
   }
 
   clearPlaces(){
