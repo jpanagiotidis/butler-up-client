@@ -8,7 +8,8 @@ import {getString} from '../managers/StringsManager.js';
 import {
   Loader,
   PlaceInfoTable, 
-  PlaceOffers
+  PlaceOffers,
+  PlaceEvents
 } from '../components';
 
 class PlaceView extends Component{
@@ -68,6 +69,7 @@ class PlaceView extends Component{
                 {catalogues}
               </ul>
             </section>
+            <PlaceEvents events={self.props.places[self.props.params.placeId].events}/>
             <PlaceOffers offers={self.props.places[self.props.params.placeId].offers}/>
             <h2 className="bu-place-section-header bu-section">{getString(['place', 'info'])}</h2>
             <section className="bu-place-info">
