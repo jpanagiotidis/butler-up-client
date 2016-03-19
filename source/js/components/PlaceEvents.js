@@ -15,8 +15,13 @@ class PlaceEvents extends Component{
 
       const events = self.props.events.map(function(event, index){
         return (
-          <li className="bu-section" key={index}>
-            <span>{event.title}</span>
+          <li className="bu-section bu-event-item" key={index}>
+            <img src={event.image}/>
+            <span className="bu-event-text">
+              <h3>{event.title}</h3>
+              <h4>FSADFASDFSADF</h4>
+            </span>
+            <span className="bu-event-text-base"/>
           </li>
         );
       })
