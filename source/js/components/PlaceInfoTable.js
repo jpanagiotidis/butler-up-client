@@ -45,9 +45,13 @@ class PlaceInfoTable extends Component{
     }
 
     if(place.website){
+      let url = place.website;
+      if(url.indexOf('http://') !== 0 && url.indexOf('https://') !== 0){
+        url = `http://${url}`;
+      }
       out.push({
         "label": getString(['place', 'website']),
-        "value_href": place.website
+        "value_href": url
       })
     }
 
