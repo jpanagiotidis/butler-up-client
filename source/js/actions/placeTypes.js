@@ -27,7 +27,7 @@ function setPlaceTypes(data){
         name: type.name,
         visible: type.visible_name,
         icon: icons[type.name],
-        isActive: true
+        isActive: false
       };
     }
   });
