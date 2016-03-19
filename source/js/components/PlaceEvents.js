@@ -19,7 +19,7 @@ class PlaceEvents extends Component{
             <img src={event.image}/>
             <span className="bu-event-text">
               <h3>{event.title}</h3>
-              <h4>FSADFASDFSADF</h4>
+              {event.text_date ? (<h4>{event.text_date}</h4>) : null}
             </span>
             <span className="bu-event-text-base"/>
           </li>
