@@ -5,6 +5,7 @@ export {default as MainView} from './MainView.js';
 export {default as PlacesListView} from './PlacesListView.js';
 export {default as PlaceListItem} from './PlaceListItem.js';
 export {default as PlaceView} from './PlaceView.js';
+export {default as PlaceInfoTable} from './PlaceInfoTable.js';
 export {default as PlaceTypes} from './PlaceTypes.js';
 export {default as PlaceTypeItem} from './PlaceTypeItem.js';
 export {default as MapView} from './MapView.js';
