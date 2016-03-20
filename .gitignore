@@ -5,6 +5,8 @@ npm-debug.log
 .DS_Store
 */.DS_Store
 
+butlerup.keystore
+
 cordova/platforms/*
 cordova/plugins/*
 cordova/www/bundle.js
