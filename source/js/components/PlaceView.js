@@ -70,13 +70,16 @@ class PlaceView extends Component{
                 {catalogues}
               </ul>
             </section>
-            <PlaceImages placeId={self.props.params.placeId} images={self.props.places[self.props.params.placeId].gallery}/>
-            <PlaceEvents placeId={self.props.params.placeId} events={self.props.places[self.props.params.placeId].events}/>
-            <PlaceOffers offers={self.props.places[self.props.params.placeId].offers}/>
+            <PlaceImages placeId={self.props.params.placeId} images={place.gallery}/>
+            <PlaceEvents placeId={self.props.params.placeId} events={place.events}/>
+            <PlaceOffers offers={place.offers}/>
             <h2 className="bu-section-header bu-section">{getString(['place', 'info'])}</h2>
             <section className="bu-place-info">
-              <PlaceInfoTable place={self.props.places[self.props.params.placeId]}/>
+              <PlaceInfoTable place={place}/>
             </section>
+            <a href={`https://maps.google.com/maps?daddr=${place.location.latitude},${place.location.longitude}`} target="_blank">
+              <h2 className="bu-section-header bu-section">{getString(['place', 'directions'])}</h2>
+            </a>
           </article>
         </div>
       );
