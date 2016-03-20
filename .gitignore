@@ -5,7 +5,7 @@ npm-debug.log
 .DS_Store
 */.DS_Store
 
-butlerup.keystore
+android.keystore
 
 cordova/platforms/*
 cordova/plugins/*
