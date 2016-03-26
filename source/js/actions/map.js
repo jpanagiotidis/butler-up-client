@@ -31,6 +31,7 @@ export function initPosition(){
         latitude: 37.980528,
         longitude: 23.73313
       });
+      resolve();
     });
 
     _map.set(['zoom'], 16);
@@ -64,6 +65,7 @@ export function getCurrentPosition(){
           resolve(position);
         },
         function(err){
+          console.log('PPPP ERR', err);
           reject(err);
         },
         { 
