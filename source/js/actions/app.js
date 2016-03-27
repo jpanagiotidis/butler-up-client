@@ -14,6 +14,7 @@ export function init(){
     fetchInitData()
     .then((res) => {
       _app.set(['settings'], res.settings);
+      initLanguage();
       stringsInit(res.strings);
       placeTypesInit(res.place_types);
       resolve();
@@ -43,6 +44,10 @@ function fetchInitData(){
   });
 }
 
+function initLanguage(){
+  _app.set(['settings', 'currentLanguage'], _app.get(['settings', 'defaultLanguage']));
+}
+
 function setMode(){
   const params = getURLParams();
   if(params.mode === 'dev'){
@@ -50,6 +55,14 @@ function setMode(){
   }else{
     _app.set('mode', 'prod');
   }
+}
+
+export function getLanguage(){
+  return _app.get(['settings', 'currentLanguage']);
+}
+
+export function setLanguage(value){
+  _app.set(['settings', 'currentLanguage'], value);
 }
 
 export function getUrl(){

@@ -82,14 +82,14 @@ function fetchAllPlaces(){
       if(err){
         reject(err);
       }else{
-        const out = res.body.map(function(place){
-          return Object.assign(place, {
-            type: place.type.split(', ')
-          });
-        });
-        _places.set('items', out);
+        // const out = res.body.map(function(place){
+        //   return Object.assign(place, {
+        //     type: place.type.split(', ')
+        //   });
+        // });
+        _places.set('items', res.body);
         _places.set('lastUpdate', (new Date()).getTime());
-        resolve(out);
+        resolve(res.body);
       }
     });
   });
