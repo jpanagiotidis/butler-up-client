@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
 import {Loader} from '../components';
 import {getPlace} from '../actions/places.js';
-import {getString} from '../managers/StringsManager.js';
+import {getString, getTranslation} from '../managers/StringsManager.js';
 
 class GalleryView extends Component{
   constructor(props){
@@ -40,7 +40,7 @@ class GalleryView extends Component{
       content = (
         <div>
           <article className="bu-article">
-            <h1 className="bu-main-header bu-section">{place.title}</h1>
+            <h1 className="bu-main-header bu-section">{getTranslation(place.title)}</h1>
             <section className="bu-description bu-section">
               <p>{getString(['place', 'images'])}</p>
             </section>

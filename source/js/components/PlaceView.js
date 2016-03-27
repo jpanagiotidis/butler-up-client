@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
 import {getPlace} from '../actions/places.js';
 import {getTypeIcon} from '../actions/placeTypes.js';
-import {getString} from '../managers/StringsManager.js';
+import {getString, getTranslation} from '../managers/StringsManager.js';
 import {
   Loader,
   PlaceInfoTable, 
@@ -44,7 +44,7 @@ class PlaceView extends Component{
         return (
           <li className="bu-section" key={index}>
             <a href={cat.url}>
-              {cat.title}
+              {getTranslation(cat.title)}
             </a>
           </li>
         );
@@ -52,7 +52,7 @@ class PlaceView extends Component{
       content = (
         <div>
           <article className="bu-place bu-article">
-            <h1 className="bu-main-header bu-section">{place.title}</h1>
+            <h1 className="bu-main-header bu-section">{getTranslation(place.title)}</h1>
             <section className="bu-description bu-section">
               {self.getIcons()}
             </section>
@@ -62,7 +62,7 @@ class PlaceView extends Component{
             <h2 className="bu-section-header bu-section">{getString(['place', 'description'])}</h2>
             <section 
               className="bu-description bu-section"
-              dangerouslySetInnerHTML={{__html:place.description}}
+              dangerouslySetInnerHTML={{__html:getTranslation(place.description)}}
             />
             <h2 className="bu-section-header bu-section">{getString(['place', 'catalogues'])}</h2>
             <section className="bu-place-catalogues">

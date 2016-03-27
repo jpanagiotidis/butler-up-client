@@ -52,6 +52,7 @@ class PlacesListView extends Component{
 
   render(){
     const self = this;
+    console.log(self)
 
     if(self.props.isLoading){
       return (

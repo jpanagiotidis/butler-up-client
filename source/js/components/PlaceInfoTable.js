@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
-import {getString} from '../managers/StringsManager.js';
+import {getString, getTranslation} from '../managers/StringsManager.js';
 
 class PlaceInfoTable extends Component{
   constructor(props){
@@ -26,13 +26,13 @@ class PlaceInfoTable extends Component{
       if(place.location.street){
         out.push({
           "label": getString(['place', 'street']),
-          "value": place.location.street
+          "value": getTranslation(place.location.street)
         });
       }
       if(place.location.city){
         out.push({
           "label": getString(['place', 'city']),
-          "value": place.location.city
+          "value": getTranslation(place.location.city)
         });
       }
     }

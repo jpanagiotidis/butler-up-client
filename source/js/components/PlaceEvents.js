@@ -5,6 +5,7 @@ import {branch} from 'baobab-react/higher-order';
 import {Link} from 'react-router';
 import {getString} from '../managers/StringsManager.js';
 import {ListBox} from '../components';
+import {getTranslation} from '../managers/StringsManager.js';
 
 class PlaceEvents extends Component{
   constructor(props){
@@ -19,8 +20,8 @@ class PlaceEvents extends Component{
         return (
           <Link to={`/place/${self.props.placeId}/event/${event.id}`} key={index}>
             <ListBox
-              title={event.title}
-              sub_title={event.text_date}
+              title={getTranslation(event.title)}
+              sub_title={getTranslation(event.text_date)}
               image={event.image}
             />
           </Link>

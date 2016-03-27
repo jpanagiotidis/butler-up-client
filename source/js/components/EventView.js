@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
-import {getString} from '../managers/StringsManager.js';
+import {getString, getTranslation} from '../managers/StringsManager.js';
 import {getPlace} from '../actions/places.js';
 import {find} from 'underscore';
 import {Loader} from '../components';
@@ -32,7 +32,7 @@ class EventView extends Component{
     }else if(event){
       const subTitle = event.text_date ? (
         <section className="bu-description bu-section">
-          <p>{event.text_date}</p>
+          <p>{getTranslation(event.text_date)}</p>
         </section>
       ) : null;
       const description = event.description ? (
@@ -40,14 +40,14 @@ class EventView extends Component{
           <h2 className="bu-section-header bu-section">{getString(['place', 'description'])}</h2>
           <section 
             className="bu-description bu-section"
-            dangerouslySetInnerHTML={{__html:event.description}}
+            dangerouslySetInnerHTML={{__html:getTranslation(event.description)}}
           />
         </div>
       ) : null;
       content = (
         <div>
           <article className="bu-event bu-article">
-            <h1 className="bu-main-header bu-section">{event.title}</h1>
+            <h1 className="bu-main-header bu-section">{getTranslation(event.title)}</h1>
             {subTitle}
             <section className="bu-main-image-holder bu-section">
               <img src={event.image}/>

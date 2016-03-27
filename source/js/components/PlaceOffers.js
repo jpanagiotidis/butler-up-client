@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import {branch} from 'baobab-react/higher-order';
-import {getString} from '../managers/StringsManager.js';
+import {getString, getTranslation} from '../managers/StringsManager.js';
 import {ListBox} from '../components';
 
 class PlaceOffers extends Component{
@@ -18,8 +18,8 @@ class PlaceOffers extends Component{
         return (
           <ListBox
             key={index}
-            title={offer.title}
-            sub_title={offer.sub_title}
+            title={getTranslation(offer.title)}
+            sub_title={getTranslation(offer.sub_title)}
             image={offer.image}
           />
         );
