@@ -2,6 +2,7 @@
 
 import React, {Component} from 'react';
 import {Link} from 'react-router';
+import {getString} from '../managers/StringsManager.js';
 
 class TitleView extends Component{
   constructor(props){
@@ -14,7 +15,7 @@ class TitleView extends Component{
         <Link to="/map">
           <div className="bu-title-frame">
             <img className="logo" src="images/logo.png"/>
-            <h1>START</h1>
+            <h1>{getString(['generic', 'start'])}</h1>
           </div>
         </Link>
       </div>

@@ -2,8 +2,9 @@
   display: block;
   position: relative;
   text-align: center;
-  top: 50%;
-  @include transform(translateY(-50%));
+  background-color: $color_a;
+  // top: 50%;
+  // @include transform(translateY(-50%));
 
   .bu-place-type-item{
     padding-top: 2em;

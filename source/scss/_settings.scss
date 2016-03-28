@@ -1,0 +1,20 @@
+.bu-settings{
+  ul.bu-languages{
+    li{
+      a{
+        font-weight: 100;
+      }
+
+      &.active a{
+        letter-spacing: 0.1em;
+        text-decoration: underline;
+        font-weight: 800;
+
+      }
+      // background-color: $color_d;
+      // a{
+      //   color: $color_a;
+      // }
+    }
+  }
+}
