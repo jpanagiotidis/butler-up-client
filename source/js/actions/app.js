@@ -69,7 +69,8 @@ export function getUrl(){
   if(_app.get('mode') === 'dev'){
     return 'http://localhost:8888/buttler-up-server';
   }else{
-    return 'http://butlerup.jpan.webfactional.com';
+    return 'http://butlerup.gr';
+    // return 'http://butlerup.jpan.webfactional.com';
   }
 }
 
