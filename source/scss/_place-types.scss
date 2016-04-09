@@ -9,10 +9,15 @@
   .bu-place-type-item{
     padding-top: 1em;
     padding-bottom: 1em;
-    opacity: 0.3;
+    // opacity: 0.3;
 
-    &.active{
-      opacity: 1; 
+    & i.fa{
+      color: $color_d;
+    }
+
+    &.active i.fa{
+      // opacity: 1.0;
+      color: #6D6D71;
     }
   }
 }
