@@ -12,12 +12,12 @@
     // opacity: 0.3;
 
     & i.fa{
-      color: $color_d;
+      color: #6D6D71;
     }
 
     &.active i.fa{
+      color: $color_d;
       // opacity: 1.0;
-      color: #6D6D71;
     }
   }
 }

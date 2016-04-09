@@ -31,6 +31,8 @@ function setPlaceTypes(data){
     }
   });
   _placeTypes.set(types);
+
+  console.log(types);
 }
 
 export function switchType(id){
