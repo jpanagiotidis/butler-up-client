@@ -10,6 +10,8 @@
     "build-android": "NODE_ENV=production webpack --progress --#mode=prod --#platform=android && cd cordova && cordova build android --debug",
     "build-android-release": "NODE_ENV=production webpack --progress --#mode=prod --#platform=android && cd cordova && cordova build android --release --buildConfig=../android-build.json",
     "run-android": "NODE_ENV=production webpack --progress --#mode=prod --#platform=android && cd cordova && cordova run android",
+    "run-ios": "NODE_ENV=production webpack --progress --#mode=prod --#platform=android && cd cordova && cordova build ios",
+    "reqs": "cd cordova && cordova requirements",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "jpanagiotidis",
@@ -40,6 +42,8 @@
     "baobab-react": "1.0.1",
     "cordova": "6.0.0",
     "history": "1.17.0",
+    "ios-deploy": "^1.8.5",
+    "ios-sim": "^5.0.8",
     "react": "0.14.7",
     "react-dom": "0.14.7",
     "react-router": "1.0.3",
