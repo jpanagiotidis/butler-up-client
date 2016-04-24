@@ -19,19 +19,36 @@
     <platform name="android">
         <allow-intent href="market:*" />
         <preference name="Orientation" value="portrait" />
+        <splash src="res/splash/splash-320x480.png" density="port-hdpi"/>
+        <splash src="res/splash/splash-640x960.png" density="port-ldpi"/>
+        <splash src="res/splash/splash-768x1024.png" density="port-mdpi"/>
+        <splash src="res/splash/splash-1536x2048.png" density="port-xhdpi"/>
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
         <preference name="Orientation" value="portrait" />
+        <splash src="res/splash/splash-320x480.png" width="320" height="480"/>
+        <splash src="res/splash/splash-640x960.png" width="640" height="960"/>
+        <splash src="res/splash/splash-768x1024.png" width="768" height="1024"/>
+        <splash src="res/splash/splash-1536x2048.png" width="1536" height="2048"/>
+        <splash src="res/splash/splash-640x1136.png" width="640" height="1136"/>
+        <splash src="res/splash/splash-750x1334.png" width="750" height="1334"/>
+        <splash src="res/splash/splash-1242x2208.png" width="1242" height="2208"/>
     </platform>
     <preference name="xwalkVersion" value="16+" />
     <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
     <preference name="xwalkMode" value="embedded" />
     <preference name="xwalkMultipleApk" value="true" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
+    <preference name="SplashShowOnlyFirstTime" value="false" />
+    <preference name="SplashScreenDelay" value="35000" />
+    <preference name="FadeSplashScreenDuration" value="2000"/>
+    <preference name="AutoHideSplashScreen" value="false" />
     <plugin name="cordova-plugin-crosswalk-webview" spec="~1.5.0" />
     <plugin name="cordova-plugin-geolocation" spec="~2.1.0" />
+    <plugin name="cordova-plugin-splashscreen" spec="~3.1.0" />
     <engine name="android" spec="~4.1.0" />
-    <icon src="res/icon.png" />
     <engine name="ios" spec="~4.0.1" />
+    <icon src="res/icon.png" />
 </widget>

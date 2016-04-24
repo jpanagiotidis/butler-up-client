@@ -8,25 +8,26 @@ import {init as appInit} from './actions/app.js';
 import {initMap, initPosition} from './actions/map.js';
 import {init as stringsInit} from './managers/StringsManager.js';
 import {
-  InitLoader, 
-  TitleView, 
-  MainView, 
-  PlacesListView, 
-  PlaceView, 
-  SettingsView, 
+  InitLoader,
+  TitleView,
+  MainView,
+  PlacesListView,
+  PlaceView,
+  SettingsView,
   MapView,
   EventView,
   GalleryView,
-  PlaceTypesSelectorView, 
+  PlaceTypesSelectorView,
   NotFound
 } from './components';
 import '../scss/main.scss';
+import {isCordova} from './configuration';
 
 render(<InitLoader/>, document.getElementById('appFrame'));
 
 Promise.all([
   initMap(),
-  initPosition(), 
+  initPosition(),
   appInit()
 ])
 .then(function(res){
@@ -42,9 +43,14 @@ Promise.all([
         <Route path="/settings" component={SettingsView}/>
       </Route>
       <Route path="*" component={NotFound}/>
-    </Router>, 
+    </Router>,
     document.getElementById('appFrame')
   );
+  if(isCordova()){
+    setTimeout(() => {
+      navigator.splashscreen.hide();
+    }, 1600);
+  }
 })
 .catch(function(err){
   console.log('ERROR ON APP LOADING');
