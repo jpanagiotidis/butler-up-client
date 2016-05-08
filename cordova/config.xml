@@ -38,6 +38,7 @@
         <splash density="port-ldpi" src="res/splash/splash-640x960.png" />
         <splash density="port-mdpi" src="res/splash/splash-768x1024.png" />
         <splash density="port-xhdpi" src="res/splash/splash-1536x2048.png" />
+        <icon src="res/icon.png" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
