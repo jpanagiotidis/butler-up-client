@@ -46,11 +46,11 @@ Promise.all([
     </Router>,
     document.getElementById('appFrame')
   );
-  if(isCordova()){
-    setTimeout(() => {
-      navigator.splashscreen.hide();
-    }, 1600);
-  }
+  // if(isCordova()){
+  //   setTimeout(() => {
+  //     navigator.splashscreen.hide();
+  //   }, 1600);
+  // }
 })
 .catch(function(err){
   console.log('ERROR ON APP LOADING');
