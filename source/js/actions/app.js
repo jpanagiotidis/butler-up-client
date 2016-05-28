@@ -5,11 +5,13 @@ import {tree} from '../managers/StateManager.js';
 import {init as stringsInit} from '../managers/StringsManager.js';
 import {init as placeTypesInit} from './placeTypes.js';
 import {getURLParams} from '../utils/tools.js';
+import {isCordova} from '../configuration';
 
 const _app = tree.select('app');
 
 export function init(){
   return new Promise((resolve, reject) => {
+    hideStatusBar();
     setMode();
     fetchInitData()
     .then((res) => {
@@ -23,6 +25,17 @@ export function init(){
       reject(err);
     });
   });
+}
+
+function hideStatusBar(){
+  if(isCordova()){
+    document.addEventListener("deviceready", () => {
+      StatusBar.hide();
+    }, false);
+    // function onDeviceReady() {
+    //   console.log(StatusBar);
+    // }
+  }
 }
 
 function fetchInitData(){

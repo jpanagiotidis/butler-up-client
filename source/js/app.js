@@ -22,7 +22,6 @@ import {
   NotFound
 } from './components';
 import '../scss/main.scss';
-import {isCordova} from './configuration';
 
 render(<InitLoader/>, document.getElementById('appFrame'));
 
