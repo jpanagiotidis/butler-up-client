@@ -40,7 +40,7 @@
   "dependencies": {
     "baobab": "2.3.3",
     "baobab-react": "1.0.1",
-    "cordova": "6.1.1",
+    "cordova": "6.2.0",
     "fastclick": "1.0.6",
     "history": "1.17.0",
     "ios-deploy": "1.8.6",
