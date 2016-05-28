@@ -4,7 +4,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
 import {history} from './managers/StateManager.js';
-import FastClick from 'fastclick';
+import 'react-fastclick';
 import {init as appInit} from './actions/app.js';
 import {initMap, initPosition} from './actions/map.js';
 import {init as stringsInit} from './managers/StringsManager.js';
@@ -23,13 +23,6 @@ import {
 } from './components';
 import '../scss/main.scss';
 import {isCordova} from './configuration';
-
-if ('addEventListener' in document) {
-  document.addEventListener('DOMContentLoaded', function() {
-    FastClick.attach(document.body);
-    console.log('FAFAFA');
-  }, false);
-}
 
 render(<InitLoader/>, document.getElementById('appFrame'));
 
