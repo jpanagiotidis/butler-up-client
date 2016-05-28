@@ -18,6 +18,65 @@ class PlacesListView extends Component{
     getActivePlaces();
   }
 
+  // getPlaces(){
+  //   const self = this;
+  //   const loc = getLocation();
+  //
+  //   let nearPlaces = self.props.items
+  //   .slice()
+  //   .map(function(place){
+  //     return Object.assign({}, place, {
+  //       distance: getDistance(loc.latitude, loc.longitude, place.latitude, place.longitude)
+  //     });
+  //   })
+  //   .filter(function(place){
+  //     return place.distance < getMaximumListDistance();
+  //   });
+  //
+  //   if(nearPlaces.length > 0){
+  //     return nearPlaces.sort(function(a, b){
+  //       if(a.distance > b.distance){
+  //         return 1;
+  //       }else if(a.distance < b.distance){
+  //         return -1;
+  //       }else{
+  //         return 0;
+  //       }
+  //     })
+  //     .map(item => {
+  //       const props = Object.assign({
+  //         key: item.id
+  //       }, item);
+  //       return (<PlaceListItem {...props}/>);
+  //     })
+  //     .slice(0, getMaxListSize());
+  //   }else{
+  //     return self.props.items
+  //     .slice()
+  //     .map(function(place){
+  //       return Object.assign({}, place, {
+  //         distance: getDistance(loc.latitude, loc.longitude, place.latitude, place.longitude)
+  //       });
+  //     })
+  //     .sort(function(a, b){
+  //       if(a.distance > b.distance){
+  //         return 1;
+  //       }else if(a.distance < b.distance){
+  //         return -1;
+  //       }else{
+  //         return 0;
+  //       }
+  //     })
+  //     .map(item => {
+  //       const props = Object.assign({
+  //         key: item.id
+  //       }, item);
+  //       return (<PlaceListItem {...props}/>);
+  //     })
+  //     .slice(0, getMaxListSize());
+  //   }
+  // }
+
   getPlaces(){
     const self = this;
     const loc = getLocation();
@@ -38,9 +97,9 @@ class PlacesListView extends Component{
         return 0;
       }
     })
-    .filter(function(place){
-      return place.distance < getMaximumListDistance();
-    })
+    // .filter(function(place){
+    //   return place.distance < getMaximumListDistance();
+    // })
     .map(item => {
       const props = Object.assign({
         key: item.id
@@ -52,7 +111,7 @@ class PlacesListView extends Component{
 
   render(){
     const self = this;
-    console.log(self)
+    // console.log(self)
 
     if(self.props.isLoading){
       return (
@@ -73,13 +132,13 @@ class PlacesListView extends Component{
 function getDistance(lat1,lon1,lat2,lon2) {
   var R = 6371; // Radius of the earth in km
   var dLat = deg2rad(lat2-lat1);  // deg2rad below
-  var dLon = deg2rad(lon2-lon1); 
-  var a = 
+  var dLon = deg2rad(lon2-lon1);
+  var a =
     Math.sin(dLat/2) * Math.sin(dLat/2) +
-    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
     Math.sin(dLon/2) * Math.sin(dLon/2)
-    ; 
-  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    ;
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
   var d = R * c; // Distance in km
   return d;
 }

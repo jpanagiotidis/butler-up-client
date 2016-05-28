@@ -12,7 +12,7 @@ class TitleView extends Component{
   render(){
     return(
       <div className="bu-screen bu-title-screen">
-        <Link to="/map">
+        <Link to="/place">
           <div className="bu-title-frame">
             <img className="logo" src="images/logo.png"/>
             <h1>{getString(['generic', 'start'])}</h1>

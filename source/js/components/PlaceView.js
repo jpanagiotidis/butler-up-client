@@ -1,13 +1,15 @@
 'user strict';
 
 import React, {Component} from 'react';
+import {Link} from 'react-router';
 import {branch} from 'baobab-react/higher-order';
 import {getPlace} from '../actions/places.js';
 import {getTypeIcon} from '../actions/placeTypes.js';
+import {setLocation} from '../actions/map.js';
 import {getString, getTranslation} from '../managers/StringsManager.js';
 import {
   Loader,
-  PlaceInfoTable, 
+  PlaceInfoTable,
   PlaceOffers,
   PlaceEvents,
   PlaceImages
@@ -32,10 +34,17 @@ class PlaceView extends Component{
     });
   }
 
+  gotoMap(){
+    const self = this;
+    const loc = self.props.places[self.props.params.placeId].location;
+    // console.log(loc);
+    setLocation(parseFloat(loc.latitude), parseFloat(loc.longitude));
+  }
+
   render(){
     const self = this;
     const place = self.props.places[self.props.params.placeId];
-    
+
     let content;
     if(self.props.isLoading){
       content = (<Loader/>)
@@ -60,7 +69,7 @@ class PlaceView extends Component{
               <img src={place.main_image}/>
             </section>
             <h2 className="bu-section-header bu-section">{getString(['place', 'description'])}</h2>
-            <section 
+            <section
               className="bu-description bu-section"
               dangerouslySetInnerHTML={{__html:getTranslation(place.description)}}
             />
@@ -77,6 +86,11 @@ class PlaceView extends Component{
             <section className="bu-place-info">
               <PlaceInfoTable place={place}/>
             </section>
+            <section onClick={self.gotoMap.bind(self)} className="bu-link">
+              <Link to="/map">
+                <h2 className="bu-section bu-section-header">{getString(['place', 'map'])}</h2>
+              </Link>
+            </section>
             <a href={`https://maps.google.com/maps?daddr=${place.location.latitude},${place.location.longitude}`} target="_blank">
               <h2 className="bu-section-header bu-section">{getString(['place', 'directions'])}</h2>
             </a>
@@ -86,7 +100,7 @@ class PlaceView extends Component{
     }else{
       content = (<div/>);
     }
-    
+
     return content;
   }
 }

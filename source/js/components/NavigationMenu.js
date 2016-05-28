@@ -18,16 +18,16 @@ class NavigationMenu extends Component{
     const self = this;
 
     let searchLink;
-    if(self.props.pathname === '/map'){
+    if(self.props.pathname === '/place'){
       searchLink = (
-        <Link to="/place">
-          <i className="bu-btn-map fa fa-2x fa-bars"></i>
+        <Link to="/map">
+          <i className="bu-btn-map fa fa-2x fa-globe"></i>
         </Link>
       );
     }else{
       searchLink = (
-        <Link to="/map">
-          <i className="bu-btn-map fa fa-2x fa-globe"></i>
+        <Link to="/place">
+          <i className="bu-btn-map fa fa-2x fa-bars"></i>
         </Link>
       );
     }
