@@ -32,9 +32,6 @@ function hideStatusBar(){
     document.addEventListener("deviceready", () => {
       StatusBar.hide();
     }, false);
-    // function onDeviceReady() {
-    //   console.log(StatusBar);
-    // }
   }
 }
 
