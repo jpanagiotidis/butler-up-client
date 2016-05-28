@@ -1,3 +1,7 @@
+*{
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 ul{
   margin: 0;
 }
@@ -25,7 +29,7 @@ li.bu-list-box{
     top: 50%;
     @include transform(translateY(-50%));
     z-index: 9;
-    
+
     h3, h4{
       color: $color_d;
     }
