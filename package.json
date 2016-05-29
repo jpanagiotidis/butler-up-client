@@ -3,6 +3,10 @@
   "version": "0.0.2",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "5.6.0",
+    "npm": "3.6.0"
+  },
   "scripts": {
     "dev": "webpack-dev-server --progress --#mode=dev --#platform=web",
     "build": "NODE_ENV=production webpack --progress --#mode=prod --#platform=web",
